@@ -2,7 +2,7 @@
 id: "megawise_intro"
 lang: "en"
 title: "MegaWise Overview"
-label1: "ZILLIZ Analytics"
+label1: "Overview"
 label2: "User Manual"
 label3: "MegaWise"
 ---
