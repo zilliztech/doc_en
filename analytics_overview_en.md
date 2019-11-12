@@ -1,7 +1,7 @@
 ---
 id: "analytics_overview"
 lang: "en"
-title: "ZILLIZ Analytics"
+title: "Overview"
 label1: ""
 ---
 # ZILLIZ Analytics
