@@ -2,7 +2,7 @@
 id: "user_manual"
 lang: "en"
 title: "User Manual"
-label1: "ZILLIZ Analytics"
+label1: "Overview"
 ---
 # User Manual
 

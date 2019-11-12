@@ -2,7 +2,8 @@
 id: "megawise_head"
 lang: "en"
 title: "MegaWise"
-label1: "User Manual"
+label1: "Overview"
+label2: "User Manual"
 ---
 # MegaWise
 
