@@ -16,8 +16,6 @@ label3: "Infini"
 2. Make sure you have installed MegaWise, launched the MegaWise server and imported sample data.
    - [Install Megawise](../megawise/install_infini_sql.md)
 
-
-
 ## Use Docker Compose to launch Infini
 
 1. Make sure docker-compose is running:
@@ -97,7 +95,7 @@ Now you can see the login page.
 
 ## Enter information for MegaWise
 
-After login, enter information and click **Save** to jump to the dashboard page.
+After login, enter information for MegaWise. Save the information and jump to the dashboard page.
 
 ![fill-megawise-info](../assets/fill-megawise-info.png)
 
