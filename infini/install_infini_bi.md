@@ -2,7 +2,7 @@
 id: "install_infini"
 lang: "en"
 title: "Install Infini"
-label1: "ZILLIZ Analytics"
+label1: "Overview"
 label2: "User Manual"
 label3: "Infini"
 ---
