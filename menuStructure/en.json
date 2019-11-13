@@ -20,7 +20,7 @@
       },
       {
         "id": "megawise_head",
-        "title": "MegaWise",
+        "title": "MegaWise Data Analytics Engine",
         "lang": "en",
         "label1": "User Manual",
         "label2": null,
@@ -29,10 +29,10 @@
       },
       {
         "id": "megawise_intro",
-        "title": "Introduction to MegaWise",
+        "title": "MegaWise Overview",
         "lang": "en",
         "label1": "User Manual",
-        "label2": "MegaWise",
+        "label2": "MegaWise Data Analytics Engine",
         "label3": "",
         "order": 0
       },
@@ -41,13 +41,13 @@
         "title": "Install MegaWise",
         "lang": "en",
         "label1": "User Manual",
-        "label2": "MegaWise",
+        "label2": "MegaWise Data Analytics Engine",
         "label3": "",
         "order": 1
       },
       {
         "id": "infini_head",
-        "title": "Infini",
+        "title": "Infini Interactive Analytics Interface",
         "lang": "en",
         "label1": "User Manual",
         "label2": null,
@@ -56,10 +56,10 @@
       },
       {
         "id": "infini_intro",
-        "title": "Introduction to Infini",
+        "title": "Infini Overview",
         "lang": "en",
         "label1": "User Manual",
-        "label2": "Infini",
+        "label2": "Infini Interactive Analytics Interface",
         "order": 0
       },
       {
@@ -67,7 +67,7 @@
         "title": "Install Infini",
         "lang": "en",
         "label1": "User Manual",
-        "label2": "Infini",
+        "label2": "Infini Interactive Analytics Interface",
         "order": 1
       },
       {
@@ -75,7 +75,7 @@
         "title": "Add a New Dashboard",
         "lang": "en",
         "label1": "User Manual",
-        "label2": "Infini",
+        "label2": "Infini Interactive Analytics Interface",
         "label3": "",
         "order": 2
       },
@@ -84,7 +84,7 @@
         "title": "Chart Types",
         "lang": "en",
         "label1": "User Manual",
-        "label2": "Infini",
+        "label2": "Infini Interactive Analytics Interface",
         "order": 3
       },
       {
