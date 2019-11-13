@@ -2,9 +2,8 @@
 id: "add_dashboard"
 lang: "en"
 title: "Add a new dashboard"
-label1: "Overview"
-label2: "User Manual"
-label3: "Infini"
+label1: "User Manual"
+label2: "Infini"
 ---
 # Add a new dashboard
 
