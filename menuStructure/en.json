@@ -55,12 +55,20 @@
         "order": 0
       },
       {
+        "id": "infini_intro",
+        "title": "Introduction to Infini",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "Infini",
+        "order": 0
+      },
+      {
         "id": "install_infini",
         "title": "Install Infini",
         "lang": "en",
         "label1": "User Manual",
         "label2": "Infini",
-        "order": 0
+        "order": 1
       },
       {
         "id": "add_dashboard",
@@ -69,7 +77,7 @@
         "label1": "User Manual",
         "label2": "Infini",
         "label3": "",
-        "order": 1
+        "order": 2
       },
       {
         "id": "chart_types",
@@ -77,7 +85,7 @@
         "lang": "en",
         "label1": "User Manual",
         "label2": "Infini",
-        "order": 2
+        "order": 3
       },
       {
         "id": "release_notes",
