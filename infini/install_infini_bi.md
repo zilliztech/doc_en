@@ -2,9 +2,8 @@
 id: "install_infini"
 lang: "en"
 title: "Install Infini"
-label1: "Overview"
-label2: "User Manual"
-label3: "Infini"
+label1: "User Manual"
+label2: "Infini"
 ---
 # Install Infini
 
