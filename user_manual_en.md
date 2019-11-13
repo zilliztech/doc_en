@@ -2,7 +2,7 @@
 id: "user_manual"
 lang: "en"
 title: "User Manual"
-label1: "Overview"
+label1: ""
 ---
 # User Manual
 
