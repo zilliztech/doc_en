@@ -7,4 +7,4 @@ label2: "User Manual"
 ---
 # Infini
 
-This part introduces how to install and use Infini.
+This section introduces how to install and use Infini.
