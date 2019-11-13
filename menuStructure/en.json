@@ -1,0 +1,102 @@
+{
+    "menuList": [
+      {
+        "id": "analytics_overview",
+        "title": "Overview",
+        "lang": "en",
+        "label1": "",
+        "label2": null,
+        "label3": null,
+        "order": 0
+      },
+      {
+        "id": "user_manual",
+        "title": "User Manual",
+        "lang": "en",
+        "label1": "",
+        "label2": null,
+        "label3": null,
+        "order": 1
+      },
+      {
+        "id": "megawise_head",
+        "title": "MegaWise",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": null,
+        "label3": null,
+        "order": 0
+      },
+      {
+        "id": "megawise_intro",
+        "title": "Introduction to MegaWise",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "MegaWise",
+        "label3": "",
+        "order": 0
+      },
+      {
+        "id": "install_megawise",
+        "title": "Install MegaWise",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "MegaWise",
+        "label3": "",
+        "order": 1
+      },
+      {
+        "id": "infini_head",
+        "title": "Infini",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": null,
+        "label3": null,
+        "order": 0
+      },
+      {
+        "id": "install_infini",
+        "title": "Install Infini",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "Infini",
+        "order": 0
+      },
+      {
+        "id": "add_dashboard",
+        "title": "Add a New Dashboard",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "Infini",
+        "label3": "",
+        "order": 1
+      },
+      {
+        "id": "chart_types",
+        "title": "Chart Types",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "Infini",
+        "order": 2
+      },
+      {
+        "id": "release_notes",
+        "title": "Release Notes",
+        "lang": "en",
+        "label1": "",
+        "label2": null,
+        "label3": null,
+        "order": 2
+      },
+      {
+        "id": "release_notes_0.4.0",
+        "title": "0.4.0 Release Notes",
+        "lang": "en",
+        "label1": "Release Notes",
+        "label2": "",
+        "label3": null,
+        "order": 0
+      }
+      
+    ]
+  }
