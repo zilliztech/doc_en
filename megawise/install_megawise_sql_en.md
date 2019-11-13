@@ -2,9 +2,8 @@
 id: "install_megawise"
 lang: "en"
 title: "Install MegaWise"
-label1: "Overview"
-label2: "User Manual"
-label3: "MegaWise"
+label1: "User Manual"
+label2: "MegaWise"
 ---
 # Install MegaWise
 
