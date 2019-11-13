@@ -2,9 +2,8 @@
 id: "chart_types"
 lang: "en"
 title: "Types of Infini Interfaces"
-label1: "Overview"
-label2: "User Manual"
-label3: "Infini"
+label1: "User Manual"
+label2: "Infini"
 ---
 
 # Types of Infini Interfaces
@@ -27,7 +26,7 @@ There are many types of Infini interfaces, from simple number charts to complica
 ![bar chart](../assets/bar.png)
 
 ## Stacked bar chart
-![stacked bar chart(../assets/stackedbar.png)
+![stacked bar chart](../assets/stackedbar.png)
 
 ## Point map
 ![point map](../assets/pointmap.png)
