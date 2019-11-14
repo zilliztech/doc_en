@@ -1,9 +1,9 @@
 ---
 id: "infini_intro"
 lang: "en"
-title: "Introduction to Infini"
+title: "Infini Overview"
 ---
-# Introduction to Infini
+# Infini Overview
 
 Infini, a visualized, interactive analytics interface, is built based on the React framework and the charts are developed based on the D3 library. You can freely configure each chart. Infini supports clustering and filtering for multiple columns of data. You can interact with multiple charts and update charts in real time via the exclusive crossfilter SQL functionality.
 

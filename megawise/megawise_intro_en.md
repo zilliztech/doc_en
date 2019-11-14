@@ -5,7 +5,7 @@ title: "MegaWise Overview"
 label1: "User Manual"
 label2: "MegaWise"
 ---
-# MegaWise
+# MegaWise Overview
 
 ## Introduction
 
