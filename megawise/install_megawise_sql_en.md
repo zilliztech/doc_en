@@ -10,13 +10,18 @@ label2: "MegaWise"
 
 This document introduces how to install and configure MegaWise Docker.
 
-- [**Prerequisites**](#Prerequisites)
-  - [**Install NVIDIA driver**](#Install-NVIDIA-driver)
-  - [**Install Docker**](#Install-Docker)
-  - [**Install NVIDIA container toolkit**](#Install-NVIDIA-container-toolkit)
-- [**Install MegaWise**](#Install-MegaWise)
-  - [**Automatically install**](#Automatically-install-MegaWise-and-import-sample-data)
-  - [**Manually install**](#Manually-install-MegaWise)
+<!-- TOC -->
+
+- [Prerequisites](#prerequisites)
+    - [Hardware requirements](#hardware-requirements)
+    - [Software requirements](#software-requirements)
+    - [Install NVIDIA driver](#install-nvidia-driver)
+    - [Install Docker](#install-docker)
+    - [Install NVIDIA container toolkit](#install-nvidia-container-toolkit)
+- [Automatically install](#automatically-install)
+- [Manually install](#manually-install)
+
+<!-- /TOC -->
 
 ## Prerequisites
 
@@ -210,7 +215,7 @@ This document introduces how to install and configure MegaWise Docker.
 If the terminal returns version information about the GPU, you can assume that the NVIDIA container toolkit is successfully installed.
 
 
-## Automatically install MegaWise and import sample data
+## Automatically install
 
 
 1. Download `install_megawise.sh` and `data_import.sh` to the same directory and make sure that you have execution access.
@@ -247,7 +252,7 @@ If the terminal returns version information about the GPU, you can assume that t
 
 If the terminal displays `Successfully installed MegaWise and imported test data`, you can assume that MegaWise is successfully installed and sample data is imported.
 
-## Manually install MegaWise
+## Manually install
 
 1. Check the latest version number in [docker hub](https://hub.docker.com/r/zilliz/megawise/tags).
 

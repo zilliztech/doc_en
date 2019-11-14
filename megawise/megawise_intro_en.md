@@ -7,6 +7,22 @@ label2: "MegaWise"
 ---
 # MegaWise Overview
 
+<!-- TOC -->
+
+- [Introduction](#introduction)
+- [MegaWise analytics engine](#megawise-analytics-engine)
+    - [Native support for SQL](#native-support-for-sql)
+    - [Vectorized queries and concolic execution](#vectorized-queries-and-concolic-execution)
+    - [Multilayer data cache](#multilayer-data-cache)
+    - [Dynamic query compilation](#dynamic-query-compilation)
+    - [No complex indexing, downsampling, or pre-aggregation](#no-complex-indexing-downsampling-or-pre-aggregation)
+    - [Performance/cost-effectiveness analysis](#performancecost-effectiveness-analysis)
+        - [Comparing single-node MegaWise with other cluster products](#comparing-single-node-megawise-with-other-cluster-products)
+        - [Comparing single-node MegaWise with other single-node products](#comparing-single-node-megawise-with-other-single-node-products)
+- [Summary](#summary)
+
+<!-- /TOC -->
+
 ## Introduction
 
 Following the continuous development of digitalization, data is becoming increasingly important in our everyday life. It could be stated without exaggeration that we are in an era of data, which has a strong requirement for data analytics and intelligence. Our knowledge about the world and the society is driven by ubiquitous data. With the advent of 5G technologies, the storm of data is skyrocketing in this era.
