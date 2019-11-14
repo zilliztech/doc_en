@@ -7,6 +7,16 @@ label2: "Infini"
 ---
 # Install Infini
 
+<!-- TOC -->
+
+- [Prerequisites](#prerequisites)
+- [Use Docker Compose to launch Infini](#use-docker-compose-to-launch-infini)
+- [Visualized interface](#visualized-interface)
+- [Enter information for MegaWise](#enter-information-for-megawise)
+- [Stop Infini](#stop-infini)
+
+<!-- /TOC -->
+
 ## Prerequisites
 
 1. Make sure you have installed the following software:
