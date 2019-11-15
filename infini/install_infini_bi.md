@@ -9,11 +9,11 @@ label2: "Infini"
 
 <!-- TOC -->
 
-- [Prerequisites](#prerequisites)
-- [Use Docker Compose to launch Infini](#use-docker-compose-to-launch-infini)
-- [Visualized interface](#visualized-interface)
-- [Enter information for MegaWise](#enter-information-for-megawise)
-- [Stop Infini](#stop-infini)
+- [Prerequisites](#Prerequisites)
+- [Use Docker Compose to launch Infini](#Use-Docker-Compose-to-launch-Infini)
+- [Visualized interface](#Visualized-interface)
+- [Enter information for MegaWise](#Enter-information-for-MegaWise)
+- [Stop Infini](#Stop-Infini)
 
 <!-- /TOC -->
 
