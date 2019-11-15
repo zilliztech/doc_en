@@ -9,17 +9,17 @@ label2: "MegaWise"
 
 <!-- TOC -->
 
-- [Introduction](#introduction)
-- [MegaWise analytics engine](#megawise-analytics-engine)
-    - [Native support for SQL](#native-support-for-sql)
-    - [Vectorized queries and concolic execution](#vectorized-queries-and-concolic-execution)
-    - [Multilayer data cache](#multilayer-data-cache)
-    - [Dynamic query compilation](#dynamic-query-compilation)
-    - [No complex indexing, downsampling, or pre-aggregation](#no-complex-indexing-downsampling-or-pre-aggregation)
-    - [Performance/cost-effectiveness analysis](#performancecost-effectiveness-analysis)
-        - [Comparing single-node MegaWise with other cluster products](#comparing-single-node-megawise-with-other-cluster-products)
-        - [Comparing single-node MegaWise with other single-node products](#comparing-single-node-megawise-with-other-single-node-products)
-- [Summary](#summary)
+- [Introduction](#Introduction)
+- [MegaWise analytics engine](#MegaWise-analytics-engine)
+    - [Native support for SQL](#Native-support-for-SQL)
+    - [Vectorized queries and concolic execution](#Vectorized-queries-and-concolic-execution)
+    - [Multilayer data cache](#Multilayer-data-cache)
+    - [Dynamic query compilation](#Dynamic-query-compilation)
+    - [No complex indexing, downsampling, or pre-aggregation](#No-complex-indexing-downsampling-or-pre-aggregation)
+    - [Performance/cost-effectiveness analysis](#Performancecost-effectiveness-analysis)
+        - [Comparing single-node MegaWise with other cluster products](#Comparing-single-node-MegaWise-with-other-cluster-products)
+        - [Comparing single-node MegaWise with other single-node products](#Comparing-single-node-MegaWise-with-other-single-node-products)
+- [Summary](#Summary)
 
 <!-- /TOC -->
 
