@@ -12,14 +12,14 @@ There are many types of Infini charts, from simple number charts to complicated 
 
 <!-- TOC -->
 
-- [Number chart](#number-chart)
-- [Table](#table)
-- [Line chart](#line-chart)
-- [Pie chart](#pie-chart)
-- [Bar chart](#bar-chart)
-- [Stacked bar chart](#stacked-bar-chart)
-- [Point map](#point-map)
-- [Heat map](#heat-map)
+- [Number chart](#Number-chart)
+- [Table](#Table)
+- [Line chart](#Line-chart)
+- [Pie chart](#Pie-chart)
+- [Bar chart](#Bar-chart)
+- [Stacked bar chart](#Stacked-bar-chart)
+- [Point map](#Point-map)
+- [Heat map](#Heat-map)
 
 <!-- /TOC -->
 
