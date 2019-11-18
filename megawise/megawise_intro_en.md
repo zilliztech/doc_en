@@ -44,34 +44,30 @@ MegaWise supports standard SQL and PostgreSQL grammar. The following interfaces 
 - Command-line interface
 - JDBC and ODBC
 
-### Vectorized queries and concolic execution
+### Query vectorization and hybrid execution
 
-Vectorized queries lay foundation to accelerated data analytics of MegaWise. Vectorized code allows the processor to compute multiple data items simultaneously. Currently, a single GPU contains thousands of compute units, which indicates that vectorized query in GPUs can process thousands of data items in parallel for a single period. Compared with CPUs, the concurrency level of data processing is increased by 2 to 3 orders of magnitudes.
+ Query vectorization lays foundation to accelerated data analytics of MegaWise. Vectorized code allows the processor to compute multiple data items simultaneously. Currently, a single GPU contains thousands of compute units, which indicates that query vectorization in GPUs can process thousands of data items in parallel in a single cycle. Compared with CPUs, the concurrency level of data processing is increased by 2 to 3 orders of magnitudes.
 
-Vectorized queries can also be applied to CPUs. Modern CPUs usually provide advanced vector extensions which integrates wide-character execution units that can process multiple data items in parallel. The SQL engine of MegaWise can drive multiple GPUs and CPUs for vectorized queries. Even for CPUs, there is a performance increase in vectorized queries compared with traditional multi-threading methods.
-
+Query vectorization can also be applied to CPUs. Modern CPUs usually provide advanced vector extensions which integrates wide execution units that can process multiple data items in parallel. The SQL engine of MegaWise can drive multiple GPUs and CPUs for query vectorization. Even for CPUs, there is a performance increase in query vectorization compared with traditional multi-threading methods.
 
 ### Multilayer data cache
 
+MegaWise effectively optimized the memory and the computing layer for the best performance. MegaWise builds 3 layers of cache in each physical node, including GPU memory, main memory, and SSD. Data can be intelligently placed based on data hotness and compute locality. Hot data that needs to be frequently and continuously processed is saved to the GPU memory to avoid PCIe transmission, thus reaching the highest access speed. MegaWise can also use NVIDIA NVLink to speed up data transfer from CPUs to GPUs and are faster by 2.5 times compared with systems without NVLink. This feature can be applied in servers with IBM OpenPOWER architecture.
 
-MegaWise completely optimized the memory and the computing layer for the best performance. MegaWise builds 3 layers of cache in each physical node, including GPU video memory, main memory, and SSD. Data can be intelligently placed based on data hotness and compute locality. Hot data that needs to be frequently and continuously processed is saved to the GPU video memory to avoid PCIe, thus reaching the highest access speed. MegaWise can also use NVIDIA NVLink to speed up data transfer from CPUs to GPUs and are faster by 2.5 times compared with systems without NVLink. This feature can be applied in IBM OpenPOWER.
-
-The cache system of MegaWise supports data exchange with exterior systems. The data is compatible with the Apache Arrow standard. You can implement data exchange in both video memory and main memory and use zero-copy data transfer mode.
+The cache system of MegaWise supports data exchange with exterior systems. The data format is compatible with the Apache Arrow standard. You can perform data exchange in both GPU memory and main memory and use zero-copy data transfer mode.
 
 ### Dynamic query compilation
 
-MegaWise supports common SQL analysis operations for up-level applications, including filtering, clustering, connecting, and provides field-specific acceleration operands, including geospatial analysis, vector analysis, and time-series analysis. In order to screen the complexity and heterogeneity of algorithms and devices and exploit the computing power of the hardware accelerator to the fullest, ZILLIZ builds a JIT compilation system based on LLVM in MegaWise. LLVM enables MegaWise to convert queries to intermediate code that is independent from the architecture. The intermediate code then generates target code based on the hardware environment and performs specific optimization on hardware. In this way, MegaWise can be supported across different platforms and devices. Currently, MegaWise can run with high efficiency in NVIDIA GPU, x64 CPU, POWER CPU, and ARM CPU.
+MegaWise supports common SQL analysis operations for up-level applications, including filtering, clustering, connecting, and provides field-specific acceleration operands, including geospatial analysis, vector analysis, and time-series analysis. In order to screen the complexity of algorithms and heterogeneity of devices and exploit the computing power of the hardware accelerator to the fullest, ZILLIZ builds a JIT compilation system based on LLVM in MegaWise. LLVM enables MegaWise to convert queries to intermediate code that is independent from the architecture. The intermediate code then generates target code based on the hardware environment and performs specific optimization on hardware. In this way, MegaWise can be supported across different platforms and devices. Currently, MegaWise can run with high efficiency in NVIDIA GPU, x64 CPU, POWER CPU, and ARM CPU.
 
 
 The JIT system also increases the compilation speed with less than 20 milliseconds per query. Combining with the query plan cache system, the average compilation time for queries is usually less than 10 milliseconds. With the support of the JIT system, you can conveniently customize data analytics with SQL and exploit the heterogeneous computation of CPUs/GPUs to the fullest without taking into consideration the differences in hardware and algorithm implementation.
 
 ### No complex indexing, downsampling, or pre-aggregation
 
-Traditional data repositories often use indexing, downsampling, and pre-aggregation to support massive-scale data analytics. These technologies need a long preprocessing step and cannot meet the requirements to process massive-scale, streaming data in real time. In comparison, MegaWise does not need indexing, downsampling, or pre-aggregation. With the support of GPUs, MegaWise can perform real-time queries for billion-scale datasets in tens or hundreds of milliseconds.
+Traditional database warehouse often uses indexing, downsampling, and pre-aggregation to support massive-scale data analytics. These technologies need a long preprocessing step and cannot meet the requirements to process massive-scale, streaming data in real time. In comparison, MegaWise does not need indexing, downsampling, or pre-aggregation. With the support of GPUs, MegaWise can perform real-time queries for billion-scale datasets in tens or hundreds of milliseconds.
 
 Avoiding using indexing, downsampling, and pre-aggregation comes with the following benefits: first, you do not have to waste extra resources modelling data. You just need to import the data to perform data queries in real time. Second, less preprocessing means that MegaWise can load data faster, which is essential for scenarios such as data stream processing and high-frequency data processing.
-
-
 
 ### Performance/cost-effectiveness analysis
 
@@ -90,7 +86,7 @@ The following test uses data from New York taxi data (1.1 billion in total).
 
 > Data referenced from：https://tech.marksblogg.com/benchmarks.html
 
-- Performance
+- Performance (in seconds)
 
 |              | Q1   | Q2   | Q3   | Q4    |
 | :------------: | ----: | ----: | ----: | -----: |
@@ -113,7 +109,7 @@ The following test uses data from New York taxi data (1.1 billion in total).
 
 > Data referenced from：https://tech.marksblogg.com/benchmarks.html
 
-- Performance
+- Performance (in seconds)
 
 |              | Q1   | Q2   | Q3   | Q4    |
 | :------------: | ----: | ----: | ----: | -----: |
