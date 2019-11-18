@@ -10,9 +10,9 @@ ZILLIZ Analytics, with full intellectual property, is the next-generation visual
 
 ![InfiniAnalytics](./assets/InfiniAnalytics_en.jpg)
 
-> **ZILLIZ Analytics platform includes the following components:**
-> 1. MegaWise data analytics engine
-> 2. Picasso graphics rendering engine
-> 3. Infini interactive analytics interface
+The ZILLIZ Analytics platform includes the following components:
+- 1. MegaWise data analytics engine
+- 2. Picasso graphics rendering engine
+- 3. Infini interactive analytics interface
 
 To try this product, please contact support@zilliz.com.
