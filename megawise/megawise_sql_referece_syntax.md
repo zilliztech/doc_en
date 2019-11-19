@@ -11,9 +11,9 @@ title: "SQL Syntax"
     - [Identifiers and key words](#Identifiers-and-key-words)
     - [Constants](#Constants)
         - [String constants](#String-constants)
-        - [String constants With C-style escapes](#String-constants-with-C-style-escapes)
-        - [Dollar-Quoted string constants](#Dollar-quoted-string-constants)
-        - [Bit-String constants](#Bit-string-constants)
+        - [String constants with C-style escapes](#String-constants-with-C-style-escapes)
+        - [Dollar-Quoted string constants](#Dollar-Quoted-string-constants)
+        - [Bit-String constants](#Bit-String-constants)
         - [Numeric constants](#Numeric-constants)
     - [Special characters](#Special-characters)
     - [Comments](#Comments)
@@ -126,7 +126,7 @@ SELECT 'foo'      'bar';
 
 is not valid syntax. \(This slightly bizarre behavior is specified by SQL; MegaWise is following the standard.\)
 
-#### String constants With C-style escapes 
+#### String constants with C-style escapes 
 
 MegaWise also accepts “escape” string constants, which are an extension to the SQL standard. An escape string constant is specified by writing the letter E (upper or lower case) just before the opening single quote, e.g., E'foo'. (When continuing an escape string constant across lines, write E only before the first opening quote.) Within an escape string, a backslash character (\) begins a C-like backslash escape sequence, in which the combination of backslash and following character(s) represent a special byte value, as shown in the following table.
 
