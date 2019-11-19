@@ -25,8 +25,7 @@
         "label1": "",
         "label2": null,
         "label3": null,
-        "order": 2,
-        "isMenu": true
+        "order": 2
       },
       {
         "id": "megawise_head",
@@ -96,7 +95,7 @@
       },
       {
         "id": "megawise_sql_query",
-        "title": "Query",
+        "title": "Queries",
         "lang": "en",
         "label1": "User Manual",
         "label2": "MegaWise Data Analytics Engine",
@@ -105,7 +104,7 @@
       },
       {
         "id": "megawise_data_type",
-        "title": "Data Type",
+        "title": "Data Types",
         "lang": "en",
         "label1": "User Manual",
         "label2": "MegaWise Data Analytics Engine",
