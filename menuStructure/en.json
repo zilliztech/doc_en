@@ -10,6 +10,15 @@
         "order": 0
       },
       {
+        "id": "analytics_install",
+        "title": "Install Guide",
+        "lang": "en",
+        "label1": "",
+        "label2": null,
+        "label3": null,
+        "order": 1
+      },
+      {
         "id": "user_manual",
         "title": "User Manual",
         "lang": "en",
@@ -46,6 +55,71 @@
         "label2": "MegaWise Data Analytics Engine",
         "label3": "",
         "order": 1
+      },
+      {
+        "id": "megawise_basic_operation",
+        "title": "MegaWise Basic Operations",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "MegaWise Data Analytics Engine",
+        "label3": "",
+        "order": 2
+      },
+      
+      {
+        "id": "megawise_lan_ref",
+        "title": "SQL Reference",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "MegaWise Data Analytics Engine",
+        "label3": "",
+        "order": 3,
+        "isMenu": true
+      },
+      {
+        "id": "megawise_sql_syntax",
+        "title": "SQL Syntax",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "MegaWise Data Analytics Engine",
+        "label3": "SQL Reference",
+        "order": 0
+      },
+      {
+        "id": "megawise_sql_datadef",
+        "title": "Data Definition",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "MegaWise Data Analytics Engine",
+        "label3": "SQL Reference",
+        "order": 1
+      },
+      {
+        "id": "megawise_sql_query",
+        "title": "Query",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "MegaWise Data Analytics Engine",
+        "label3": "SQL Reference",
+        "order": 2
+      },
+      {
+        "id": "megawise_data_type",
+        "title": "Data Type",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "MegaWise Data Analytics Engine",
+        "label3": "SQL Reference",
+        "order": 3
+      },
+      {
+        "id": "megawise_func_op",
+        "title": "Functions and Operators",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "MegaWise Data Analytics Engine",
+        "label3": "SQL Reference",
+        "order": 4
       },
       {
         "id": "infini_head",
@@ -97,7 +171,7 @@
         "label1": "",
         "label2": null,
         "label3": null,
-        "order": 2,
+        "order": 3,
         "outLink": "https://github.com/zilliztech/Bootcamp"
       },
       {
@@ -107,7 +181,7 @@
         "label1": "",
         "label2": null,
         "label3": null,
-        "order": 3,
+        "order": 4,
         "isMenu": true
       },
       {
