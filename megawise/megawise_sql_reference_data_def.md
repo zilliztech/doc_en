@@ -27,7 +27,7 @@ CREATE TABLE my_first_table (
 );
 ```
 
-This creates a table named my_first_table with two columns. The first column is named first_column and has a data type of text; the second column has the name second_column and the type integer. Note that the column list is comma-separated and surrounded by parentheses.
+This creates a table named my\_first\_table with two columns. The first column is named first_column and has a data type of text; the second column has the name second_column and the type integer. Note that the column list is comma-separated and surrounded by parentheses.
 
 Of course, the previous example was heavily contrived. Normally, you would give names to your tables and columns that convey what kind of data they store. So let's look at a more realistic example:
 
