@@ -1,11 +1,8 @@
 ---
 id: "add_dashboard"
 lang: "en"
-title: "Add a new dashboard"
-label1: "User Manual"
-label2: "Infini"
 ---
-# Add a new dashboard
+# Add a New Dashboard
 
 You can add a new dashboard in Infini.
 
