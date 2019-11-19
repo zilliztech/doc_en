@@ -98,7 +98,7 @@ To remove a database, in this example named mydb, you use the following command:
 drop database mydb
 ```
 
-You must declare the database name if it is not a default name. This command phyiscally removes all files related to the database and cannot be undone. Think twice before running this command.
+You must declare the database name if it is not a default name. This command physically removes all files related to the database and cannot be undone. Think twice before running this command.
 
 
 

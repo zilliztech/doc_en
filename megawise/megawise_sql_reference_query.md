@@ -193,7 +193,7 @@ Notice that placing the restriction in the `WHERE` clause produces a different r
 This is because a restriction placed in the `ON` clause is processed before the join, while a restriction placed in the `WHERE` clause is processed after the join. That does not matter with inner joins, but it matters a lot with outer joins.
 
 
-#### Table And column aliases
+#### Table and column aliases
 
 A temporary name can be given to tables and complex table references to be used for references to the derived table in the rest of the query. This is called a table alias.
 
