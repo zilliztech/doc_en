@@ -1,12 +1,9 @@
 ---
 id: "chart_types"
 lang: "en"
-title: "Types of Infini Charts"
-label1: "User Manual"
-label2: "Infini"
 ---
 
-# Types of Infini Charts
+# Chart Types
 
 There are many types of Infini charts, from simple number charts to complicated maps.
 
