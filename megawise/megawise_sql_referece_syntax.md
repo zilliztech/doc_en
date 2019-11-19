@@ -141,7 +141,7 @@ MegaWise also accepts “escape” string constants, which are an extension to t
 | `\x*h*`, `\x*hh*` (*h* = 0 - 9, A - F)          | hexadecimal byte value                     |
 | `\u*xxxx*`, `\U*xxxxxxxx*` (*x* = 0 - 9, A - F) | 16 or 32-bit hexadecimal Unicode character value |
 
-Any other character following a backslash is taken literally. Thus, to include a backslash character, write two backslashes (\\). Also, a single quote can be included in an escape string by writing \', in addition to the normal way of ''.
+Any other character following a backslash is taken literally. Thus, to include a backslash character, write two backslashes. Also, a single quote can be included in an escape string by writing \', in addition to the normal way of ''.
 
 It is your responsibility that the byte sequences you create, especially when using the octal or hexadecimal escapes, compose valid characters in the server character set encoding. When the server encoding is UTF-8, then the Unicode escapes or the alternative Unicode escape syntax should be used instead. (The alternative would be doing the UTF-8 encoding by hand and writing out the bytes, which would be very cumbersome.)
 
