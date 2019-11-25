@@ -23,7 +23,7 @@ label2: "Infini"
    - [Docker 19.03 or higher](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/)
    - [Docker Compose](https://docs.docker.com/compose/install/)
 2. Make sure you have installed MegaWise, launched the MegaWise server and imported sample data.
-   - [Install Megawise](https://www.zilliz.com/docs/install_megawise)
+   - [Install Megawise](./install_megawise)
 
 ## Use Docker Compose to launch Infini
 
