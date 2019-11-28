@@ -7,24 +7,6 @@ label2: "MegaWise"
 ---
 # Queries
 
-<!-- TOC -->
-
-- [Overview](#Overview)
-- [Table expressions](#Table-expressions)
-    - [The FROM clause](#The-FROM-clause)
-        - [Joined tables](#Joined-tables)
-        - [Table and column aliases](#Table-and-column-aliases)
-        - [Subqueries](#Subqueries)
-    - [The WHERE clause](#The-WHERE-clause)
-    - [The GROUP BY and HAVING clauses](#The-GROUP-BY-and-HAVING-clauses)
-- [Select lists](#Select-lists)
-    - [Select-list items](#Select-list-items)
-    - [Column labels](#Column-labels)
-    - [Using DISTINCT to remove duplicate lines](#Using-DISTINCT-to-remove-duplicate-lines)
-- [Sorting rows](#Sorting-rows)
-    - [Using LIMIT and OFFSET to query a portion of the results](#Using-LIMIT-and-OFFSET-to-query-a-portion-of-the-results)
-
-<!-- /TOC -->
 
 ## Overview
 
