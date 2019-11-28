@@ -10,18 +10,6 @@ label2: "MegaWise"
 
 This document introduces how to install and configure MegaWise Docker.
 
-<!-- TOC -->
-
-- [Prerequisites](#Prerequisites)
-    - [Hardware requirements](#Hardware-requirements)
-    - [Software requirements](#Software-requirements)
-    - [Install NVIDIA driver](#Install-NVIDIA-driver)
-    - [Install Docker](#Install-Docker)
-    - [Install NVIDIA container toolkit](#Install-NVIDIA-container-toolkit)
-- [Automatically install](#Automatically-install)
-- [Manually install](#Manually-install)
-
-<!-- /TOC -->
 
 ## Prerequisites
 
