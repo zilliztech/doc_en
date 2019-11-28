@@ -7,18 +7,6 @@ lang: "en"
 
 There are many types of Infini charts, from simple number charts to complicated maps.
 
-<!-- TOC -->
-
-- [Number chart](#Number-chart)
-- [Table](#Table)
-- [Line chart](#Line-chart)
-- [Pie chart](#Pie-chart)
-- [Bar chart](#Bar-chart)
-- [Stacked bar chart](#Stacked-bar-chart)
-- [Point map](#Point-map)
-- [Heat map](#Heat-map)
-
-<!-- /TOC -->
 
 ## Number chart
 ![numeric plot](../assets/number.png)
