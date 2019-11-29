@@ -7,15 +7,6 @@ label2: "Infini"
 ---
 # Install Infini
 
-<!-- TOC -->
-
-- [Prerequisites](#Prerequisites)
-- [Use Docker Compose to launch Infini](#Use-Docker-Compose-to-launch-Infini)
-- [Visualized interface](#Visualized-interface)
-- [Enter information for MegaWise](#Enter-information-for-MegaWise)
-- [Stop Infini](#Stop-Infini)
-
-<!-- /TOC -->
 
 ## Prerequisites
 

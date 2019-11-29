@@ -7,21 +7,6 @@ label2: "MegaWise"
 ---
 # MegaWise Overview
 
-<!-- TOC -->
-
-- [Introduction](#Introduction)
-- [MegaWise analytics engine](#MegaWise-analytics-engine)
-    - [Native support for SQL](#Native-support-for-SQL)
-    - [Vectorized queries and concolic execution](#Vectorized-queries-and-concolic-execution)
-    - [Multilayer data cache](#Multilayer-data-cache)
-    - [Dynamic query compilation](#Dynamic-query-compilation)
-    - [No complex indexing, downsampling, or pre-aggregation](#No-complex-indexing-downsampling-or-pre-aggregation)
-    - [Performance/cost-effectiveness analysis](#Performancecost-effectiveness-analysis)
-        - [Comparing single-node MegaWise with other cluster products](#Comparing-single-node-MegaWise-with-other-cluster-products)
-        - [Comparing single-node MegaWise with other single-node products](#Comparing-single-node-MegaWise-with-other-single-node-products)
-- [Summary](#Summary)
-
-<!-- /TOC -->
 
 ## Introduction
 

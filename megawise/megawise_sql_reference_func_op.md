@@ -5,23 +5,6 @@ title: "Functions and Operators"
 ---
 # Functions and Operators
 
-<!-- TOC -->
-
-- [Logical operators](#Logical-operators)
-- [Comparison functions and operators](#Comparison-functions-and-operators)
-- [Mathematical functions and operators](#Mathematical-functions-and-operators)
-- [String functions and operators](#String-functions-and-operators)
-- [Pattern matching](#Pattern-matching)
-- [Date/Time functions and operators](#DateTime-functions-and-operators)
-- [Conditional expressions](#Conditional-expressions)
-- [Aggregate functions](#Aggregate-functions)
-- [Subquery expressions](#Subquery-expressions)
-    - [EXISTS subquery](#EXISTS-subquery)
-    - [IN subquery](#IN-subquery)
-    - [NOT IN subquery](#NOT-IN-subquery)
-- [System administration functions](#System-administration-functions)
-
-<!-- /TOC -->
 
 ## Logical operators
 

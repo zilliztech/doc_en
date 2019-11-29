@@ -6,19 +6,6 @@ label1: "Release Notes"
 ---
 # 0.4.0 Release Notes
 
-<!-- TOC -->
-
-- [Overview](#Overview)
-- [Infini](#Infini)
-    - [System configuration](#System-configuration)
-    - [Dashboard](#Dashboard)
-    - [Chart editor](#Chart-editor)
-- [MegaWise](#MegaWise)
-    - [SQL engine](#SQL-engine)
-- [Picasso](#Picasso)
-- [Bug fixes](#Bug-fixes)
-
-<!-- /TOC -->
 
 ## Overview
 

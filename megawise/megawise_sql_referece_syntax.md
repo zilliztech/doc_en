@@ -5,28 +5,6 @@ title: "SQL Syntax"
 ---
 # SQL Syntax
 
-<!-- TOC -->
-
-- [Lexical structure](#Lexical-structure)
-    - [Identifiers and key words](#Identifiers-and-key-words)
-    - [Constants](#Constants)
-        - [String constants](#String-constants)
-        - [String constants with C-style escapes](#String-constants-with-C-style-escapes)
-        - [Dollar-Quoted string constants](#Dollar-Quoted-string-constants)
-        - [Bit-String constants](#Bit-String-constants)
-        - [Numeric constants](#Numeric-constants)
-    - [Special characters](#Special-characters)
-    - [Comments](#Comments)
-    - [Operator precedence](#Operator-precedence)
-- [Value expressions](#Value-expressions)
-    - [Column references](#Column-references)
-    - [Positional parameters](#Positional-parameters)
-    - [Operator invocations](#Operator-invocations)
-    - [Function calls](#Function-calls)
-    - [Type casts](#Type-casts)
-    - [Scalar subqueries](#Scalar-subqueries)
-
-<!-- /TOC -->
 
 ## Lexical structure
 

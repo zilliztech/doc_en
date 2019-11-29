@@ -5,12 +5,6 @@ title: "Data Definition"
 ---
 # Data Definition
 
-<!-- TOC -->
-
-- [Table basics](#Table-basics)
-- [Default values](#Default-values)
-
-<!-- /TOC -->
 
 ## Table basics
 

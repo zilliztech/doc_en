@@ -5,18 +5,6 @@ title: "Data Types"
 ---
 # Data Types
 
-<!-- TOC -->
-
-- [Numeric data types](#Numeric-data-types)
-    - [Integer types](#Integer-types)
-    - [Floating-Point types](#Floating-Point-types)
-- [Character types](#Character-types)
-- [Date/Time types](#Datetime-types)
-    - [Date/Time input](#DateTime-input)
-    - [Date/Time output](#DateTime-output)
-- [Boolean type](#Boolean-type)
-
-<!-- /TOC -->
 
 ## Numeric data types
 
