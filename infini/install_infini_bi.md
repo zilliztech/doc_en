@@ -82,10 +82,10 @@ lang: "en"
 ## Configure the visualized interface
 
 
-1.In the login page, enter username and password to log in.
+1. In the login page, enter username and password to log in.
 
-  - Default username: zilliz
-  - Default password: zilliz
+   - Default username: zilliz
+   - Default password: zilliz
 
 2. After login, enter information for the MegaWise database. Save the information and jump to the dashboard page.
 
