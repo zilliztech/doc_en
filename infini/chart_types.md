@@ -310,7 +310,7 @@ Use the following methods to set filters:
 
 ### Overview
 
-In a heat map, you can use the color regions to analyze the continuous distribution of data in the map. The following chart uses New York taxi data to display the differences of tips in different drop-off locations. The color of a region is determined by the proportion of the tips given by passengers that are dropped off. The more closer the color is to the maximum color, the higher the proportion of the tips. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
+In a heat map, you can use the color regions to analyze the continuous distribution of data in the map. The following chart uses New York taxi data to display the differences of total fare amounts in different drop-off locations. The color of a region is determined by the total fare amount paid by passengers that are dropped off. The more closer the color is to the maximum color, the higher the total fare amount. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![heat map](../assets/geoheat_map_en.png)
 
