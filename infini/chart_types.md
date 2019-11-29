@@ -277,7 +277,7 @@ Click any bubble in the chart. If the bubble becomes highlighted, you can assume
 
 ### Overview
 
-In a point map, you can use the points to analyze the discrete distribution of data in the map. The following chart uses New York taxi data to display the differences of tips in different drop-off locations. The color of a point is determined by the proportion of the tips given by passengers that are dropped off. The more closer the color is to the maximum color, the higher the proportion of the tips. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
+In a point map, you can use the points to analyze the discrete distribution of data in the map. The following chart uses New York taxi data to display the differences of total fare amounts in different drop-off locations. The color of a point is determined by the proportion of the tips given by passengers that are dropped off. The more closer the color is to the maximum color, the higher the proportion of the tips. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![point map](../assets/point_map_en.png)
 
