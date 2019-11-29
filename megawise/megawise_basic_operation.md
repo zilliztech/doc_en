@@ -6,23 +6,6 @@ title: "Basic Data Operations"
 
 # Basic Data Operations
 
-<!-- TOC -->
-
-- [Conventions](#Conventions)
-- [Basic Operations](#Basic-operations)
-    - [Connect the psql client to MegaWise](#Connect-the-psql-client-to-MegaWise)
-    - [Creating a database](#Creating-a-database)
-    - [Switching to another database](#Switching-to-another-database)
-    - [Removing a database](#Removing-a-database)
-    - [Accessing a database](#Accessing-a-database)
-    - [Creating a new table](#Creating-a-new-table)
-    - [Removing a table](#Removing-a-table)
-    - [Adding Rows to a table](#Adding-rows-to-a-table)
-    - [Querying a table](#Querying-a-table)
-    - [Joins between tables](#Joins-between-tables)
-    - [Aggregate functions](#Aggregate-functions)
-
-<!-- /TOC -->
 
 ## Conventions
 

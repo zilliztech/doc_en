@@ -10,18 +10,6 @@ label2: "MegaWise"
 
 This document introduces how to install and configure MegaWise Docker.
 
-<!-- TOC -->
-
-- [Prerequisites](#Prerequisites)
-    - [Hardware requirements](#Hardware-requirements)
-    - [Software requirements](#Software-requirements)
-    - [Install NVIDIA driver](#Install-NVIDIA-driver)
-    - [Install Docker](#Install-Docker)
-    - [Install NVIDIA container toolkit](#Install-NVIDIA-container-toolkit)
-- [Automatically install](#Automatically-install)
-- [Manually install](#Manually-install)
-
-<!-- /TOC -->
 
 ## Prerequisites
 
@@ -221,8 +209,8 @@ If the terminal returns version information about the GPU, you can assume that t
 1. Download `install_megawise.sh` and `data_import.sh` to the same directory and make sure that you have execution access.
 
    ```bash
-   $ wget https://raw.githubusercontent.com/Infini-Analytics/infini/master/script/data_import.sh \
-   https://raw.githubusercontent.com/Infini-Analytics/infini/master/script/install_megawise.sh
+   $ wget https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/script/data_import.sh \
+   https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/script/install_megawise.sh
    $ chmod a+x *.sh
    ```
    
@@ -289,10 +277,10 @@ If the terminal displays `Successfully installed MegaWise and imported test data
 
     ```bash
     $ cd $WORK_DIR/conf
-    $ wget https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/chewie_main.yaml \
-    https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/etcd.yaml \
-    https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/megawise_config_template.yaml \
-    https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/render_engine.yaml
+    $ wget https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/config/db/chewie_main.yaml \
+    https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/config/db/etcd.yaml \
+    https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/config/db/megawise_config_template.yaml \
+    https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/config/db/render_engine.yaml
     ```
 
 6. Modify config files based on the hardware environment of MegaWise.
