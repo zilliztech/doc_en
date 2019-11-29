@@ -22,7 +22,7 @@ This topic uses the following open source datasets as examples:
 
 ### Overview
 
-In a number chart, you can use various measurement methods and data formats for numerics. The following chart uses the New York taxi dataset to display the average of tips. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
+In a number chart, you can use various measurement methods and data formats for numerics. The following chart uses the New York taxi dataset to display the average fare amount. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![number chart](../assets/num_chart_en.png)
 
