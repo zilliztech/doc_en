@@ -2,22 +2,28 @@
 id: "add_dashboard"
 lang: "en"
 ---
-# Add a New Dashboard
+# Add Dashboards and Charts
 
-You can add a new dashboard in Infini.
+## Add a new dashboard
 
-![add dashboard](../assets/dashboard-list.png)
-![empty dashboard](../assets/empty-dashboard.png)
+1. In the **DASHBOARD** tab, click **ADD DASHBOARD** to add a new dashboard.
 
-The following screenshot shows an added dashboard.
+    ![add dashboard](../assets/dashboard-list.png)
 
-![added](../assets/new-dashboard-added.png)
+    The following screenshot shows an added dashboard:
+
+    ![empty dashboard](../assets/empty-dashboard.png)
+
+2. Click the **DASHBOARD** tab, you can see that the new dashboard has been added to the list.
+
+    ![added](../assets/new-dashboard-added.png)
 
 ## Add a new chart
 
-You can add new charts in Infini.
+1. Click **ADD NEW CHART**.
 
-![Empty Dashboard](../assets/empty-dashboard.png)
-![add chart](../assets/add-chart.png)
+    ![Empty Dashboard](../assets/empty-dashboard.png)
 
+2. In the chart configuration interface, select the chart type and configure the parameters.
 
+3. Click **APPLY** to save the configured chart to the dashboard.
