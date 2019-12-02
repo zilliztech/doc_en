@@ -21,13 +21,10 @@ This topic uses the following open source datasets as examples:
 
 ## Number chart
 
-#### Overview
 
 In a number chart, you can use various measurement methods and data formats for numerics. The following chart uses the New York taxi dataset to display the average fare amount. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![number chart](../assets/num_chart_en.png)
-
-#### Parameter reference
 
 
 The following table displays the parameters of a number chart:
@@ -42,21 +39,16 @@ The following table displays the parameters of a number chart:
 
 
 
-#### Setting filters
-
 You cannot set filters for number charts.
 
 
 ## Line chart
 
-#### Overview
 
 In a line chart, you can analyze the track of data in a specific range. You also can perform correlation analysis for multiple types of data. The following chart uses the New York taxi dataset to display the track of the average tip value across different time ranges. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![line chart](../assets/line_chart_en.png)
 
-
-#### Parameter reference
 
 The following table displays parameters of a line chart:
 
@@ -73,8 +65,6 @@ The following table displays parameters of a line chart:
 
 > Note: For charts with `DIMENSIONS`, you must use and only use [aggregate functions](./megawise_func_op) for customized expressions in `MEASURES`.
 
-#### Setting filters
-
 Use the mouse to drag an area to add the data represented by the area to the filter.
 
 To automatically play the line chart, drag an area and click the triangular display button. This is equivalent to a moving filter and causes real-time changes to other related charts in the dashboard.
@@ -84,13 +74,11 @@ To automatically play the line chart, drag an area and click the triangular disp
 
 ## Pie chart
 
-#### Overview
 
 In a pie chart, you can analyze the proportion of different components. The following chart uses New York taxi dataset to display the proportion of trip numbers of different vendors. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![pie chart](../assets/pie_chart_en.png)
 
-#### Parameter reference
 
 The following table displays parameters of a pie chart:
 
@@ -106,19 +94,15 @@ The following table displays parameters of a pie chart:
 
 > Note: For charts with `DIMENSIONS`, you must use and only use [aggregate functions](./megawise_func_op) for customized expressions in `MEASURES`.
 
-#### Setting filters
 
 Click any arc in the chart. If the arc becomes highlighted, you can assume that the data represented by the arc is added to the filter.
 
 ## Bar chart
 
-#### Overview
-
 In a bar chart, you can analyze specific types of data under certain conditions. The following chart uses New York taxi dataset to display the average passenger number in different hours. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![bar chart](../assets/bar_char_en.png)
 
-#### Parameter reference
 
 The following table displays parameters of a bar chart:
 
@@ -134,20 +118,17 @@ The following table displays parameters of a bar chart:
 
 > Note: For charts with `DIMENSIONS`, you must use and only use [aggregate functions](./megawise_func_op) for customized expressions in `MEASURES`.
 
-#### Setting filters
 
 Click a bar in the chart. If the chart becomes highlighted, you can assume that the data represented by the bar is added to the filter.
 
 
 ## Stacked bar chart
 
-#### Overview
 
 In a stacked bar chart, you can stack the bars of multiple data types in order to analyze the correlation between data types and their sub-types. The following chart uses the Shanghai WiFi base station dataset to display the SSID sub-types in each WiFi network type. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![stacked bar chart](../assets/stacked_bar_chart_en.png)
 
-#### Parameter reference
 
 The following table displays parameters of a stacked bar chart:
 
@@ -163,20 +144,17 @@ The following table displays parameters of a stacked bar chart:
 
 > Note: For charts with `DIMENSIONS`, you must use and only use [aggregate functions](./megawise_func_op) for customized expressions in `MEASURES`.
 
-#### Setting filters
 
 Click a bar in the chart. If the chart becomes highlighted, you can assume that the data represented by the bar is added to the filter.
 
 
 ## Histogram
 
-#### Overview
 
 In a histogram, you can analyze specific types of data under certain conditions. Different from the bar chart or stacked bar chart. The following chart uses New York taxi dataset to display the average passenger number in different hours. Each bar is divided into different colored components based on vendor IDs. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![histogram](../assets/histogram_en.png)
 
-#### Parameter reference
 
 
 | Parameter | Description |
@@ -189,7 +167,6 @@ In a histogram, you can analyze specific types of data under certain conditions.
 
 > Note: For charts with `DIMENSIONS`, you must use and only use [aggregate functions](./megawise_func_op) for customized expressions in `MEASURES`.
 
-#### Setting filters
 
 Use the mouse to drag an area to add the data represented by the area to the filter.
 
@@ -197,13 +174,11 @@ Use the mouse to drag an area to add the data represented by the area to the fil
 
 ## Table chart
 
-#### Overview
 
 In a table chart, you can group data based on columns in order to analyze data. The following chart uses the New York taxi dataset to display the maximum tip amount and the number of records. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![table](../assets/table_en.png)
 
-#### Parameter reference
 
 The following table displays parameters of a table chart:
 
@@ -217,19 +192,16 @@ The following table displays parameters of a table chart:
 
 > Note: For charts with `DIMENSIONS`, you must use and only use [aggregate functions](./megawise_func_op) for customized expressions in `MEASURES`.
 
-#### Setting filters
 
 Click a cell in the table chart. If the cell becomes highlighted, you can assume that the data in the cell is added to the filter.
 
 ## Heat chart
 
-#### Overview
 
 In a heat chart, you can analyze data changes based on the color of different cells. The following chart uses New York tax dataset. The X AXIS and the Y AXIS represent date and time, respectively. The color of each cell is determined by the average passenger count in a specific time and date. The closer the color is to the maximum color, the higher the average passenger count. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![heat chart](../assets/heat_map_en.png)
 
-#### Parameter reference
 
 The following table displays parameters of a heat chart:
 
@@ -242,19 +214,16 @@ The following table displays parameters of a heat chart:
 
 > Note: For charts with `DIMENSIONS`, you must use and only use [aggregate functions](./megawise_func_op) for customized expressions in `MEASURES`.
 
-#### Setting filters
 
 Click any cell in the chart. If the cell becomes highlighted, you can assume that the data represented by the bubble is added to the filter.
 
 ## Bubble chart
 
-#### Overview
 
 In a bubble chart, you can analyze the correlation of data based on the color, size, and position of bubbles. The following chart uses New York tax dataset. Different bubbles represent different hours and the colors represent the average total fare amount. The X AXIS represents the sum of trip distance and the Y AXIS represents the sum of the total fare amount. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![bubble chart](../assets/bubble_chart_en.png)
 
-#### Parameter reference
 
 The following table displays parameters of a bubble chart:
 
@@ -268,7 +237,6 @@ The following table displays parameters of a bubble chart:
 
 > Note: For charts with `DIMENSIONS`, you must use and only use [aggregate functions](./megawise_func_op) for customized expressions in `MEASURES`.
 
-#### Setting filters
 
 Click any bubble in the chart. If the bubble becomes highlighted, you can assume that the data represented by the bubble is added to the filter.
 
@@ -276,13 +244,11 @@ Click any bubble in the chart. If the bubble becomes highlighted, you can assume
 
 ## Point map
 
-#### Overview
 
 In a point map, you can use the points to analyze the discrete distribution of data in the map. The following chart uses New York taxi data to display the differences of total fare amounts in different drop-off locations. The color of a point is determined by the proportion of the tips given by passengers that are dropped off. The more closer the color is to the maximum color, the higher the proportion of the tips. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![point map](../assets/point_map_en.png)
 
-#### Parameter reference
 
 The following table displays parameters of a point map:
 
@@ -298,7 +264,6 @@ The following table displays parameters of a point map:
 |`COLOR PALETTE`|     Color range of all points in the map.          |
 |`MEASURE NUMBER FORMATTING` |  Display format of measure data in the chart.|
 
-#### Setting filters
 
 Use the following methods to set filters:
 
@@ -309,13 +274,11 @@ Use the following methods to set filters:
 
 ## Heat map
 
-#### Overview
 
 In a heat map, you can use the color regions to analyze the continuous distribution of data in the map. The following chart uses New York taxi data to display the differences of total fare amounts in different drop-off locations. The color of a region is determined by the total fare amount paid by passengers that are dropped off. The more closer the color is to the maximum color, the higher the total fare amount. Refer to [Example datasets used in this topic](#Example-datasets-used-in-this-topic) for more information.
 
 ![heat map](../assets/geoheat_map_en.png)
 
-#### Parameter reference
 
 The following table displays parameters of a heat map:
 
@@ -328,7 +291,6 @@ The following table displays parameters of a heat map:
 
 > Note: For charts with `DIMENSIONS`, you must use and only use [aggregate functions](./megawise_func_op) for customized expressions in `MEASURES`.
 
-#### Setting filters
 
 Use the following methods to set filters:
 
