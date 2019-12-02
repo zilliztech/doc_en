@@ -1,9 +1,6 @@
 ---
 id: "install_infini"
 lang: "en"
-title: "Install Infini"
-label1: "User Manual"
-label2: "Infini"
 ---
 # Install Infini
 
@@ -33,8 +30,9 @@ label2: "Infini"
 2. Download the config files to the same folder.
 
    ```bash
-   $ wget https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/config/webserver/.env \
-   https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/config/webserver/docker-compose.yml
+   $ wget https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/webserver/.env \
+   https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/webserver/docker-compose.yml
+
    ```
 
 3. Modify the `.env` file.
@@ -82,36 +80,27 @@ label2: "Infini"
    ```
 
 
-## Visualized interface
-
-Now you can see the login page.
-
-![login](../assets/Login.png)
-
-**Enter username and password to log in：**
-
-- Default username: zilliz
-- Default password: zilliz
-
-## Enter information for MegaWise
-
-After login, enter information for MegaWise. Save the information and jump to the dashboard page.
-
-![fill-megawise-info](../assets/fill-megawise-info.png)
-
-![dashboard-list](../assets/dashboard-list.png)
-
-Click **New York Taxi Boards** to display the following page:
-
-![New York Taxi data](../assets/nyc-demo.png)
-
-If you can see the previous page, you can assume that Infini is successfully installed.
+## Configure the visualized interface
 
 
+1. In the login page, enter username and password to log in.
 
-## Stop Infini
+   - Default username: zilliz
+   - Default password: zilliz
 
-```bash
-# Stop Infini
-$ docker-compose -f docker-compose.yml down
-```
+2. After login, enter information for the MegaWise database. Save the information and jump to the dashboard page.
+
+
+3. Click **New York Taxi Boards** to display the following page:
+
+    ![New York Taxi data](../assets/nyc-demo.png)
+
+    If you can see the previous page, you can assume that the Infini interface is successfully installed.
+
+
+4. To stop the Infini interface, use the following command:
+
+   ```bash
+   # Stop Infini
+   $ docker-compose -f docker-compose.yml down
+   ```

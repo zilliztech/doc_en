@@ -157,7 +157,7 @@
       },
       {
         "id": "chart_types",
-        "title": "Chart Types",
+        "title": "Chart Types and Parameter Reference",
         "lang": "en",
         "label1": "User Manual",
         "label2": "Infini Interactive Analytics Interface",
@@ -184,8 +184,8 @@
         "isMenu": true
       },
       {
-        "id": "release_notes_0.4.0",
-        "title": "0.4.0 Release Notes",
+        "id": "release_notes_0.5.0",
+        "title": "0.5.0 Release Notes",
         "lang": "en",
         "label1": "Release Notes",
         "label2": "",
