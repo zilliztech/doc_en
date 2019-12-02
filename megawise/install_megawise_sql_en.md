@@ -294,8 +294,8 @@ If the terminal displays `Successfully installed MegaWise and imported test data
             cpu:
               physical_memory: 16 # size in GB
               partition_memory: 16 # size in GB
-          
-            num: 2
+            gpu:
+              num: 2
               physical_memory: 2  # size in GB
               partition_memory: 2 # size in GB
           ```
@@ -412,7 +412,7 @@ If the terminal displays `Successfully installed MegaWise and imported test data
     $ id -u
     ```
 
-    > `IP_ADDR` can be acquired by the following command:
+    > `$IP_ADDR` can be acquired by the following command:
 
     ```bash
     $ ifconfig
