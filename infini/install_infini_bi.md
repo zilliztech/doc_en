@@ -32,6 +32,7 @@ lang: "en"
    ```bash
    $ wget https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/webserver/.env \
    https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/webserver/docker-compose.yml
+
    ```
 
 3. Modify the `.env` file.

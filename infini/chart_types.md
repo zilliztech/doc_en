@@ -18,6 +18,7 @@ This topic uses the following open source datasets as examples:
 
   ![Shanghai WiFi](../assets/wuxian_wifi_info.png)
 
+
 ## Number chart
 
 ### Overview
