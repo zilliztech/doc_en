@@ -39,7 +39,7 @@ label2: "Infini"
 
 3. Modify the `.env` file.
 
-   > <font color='red'>Note：Update `192.168.1.60` to the IP address of the running Infini docker server. Update `192.168.1.106` to the IP address of the running MegaWise docker server.</font>
+   > Note：Update `192.168.1.60` to the IP address of the running Infini docker server. Update `192.168.1.106` to the IP address of the running MegaWise docker server.
 
    ```yml
    # default API server address
@@ -67,7 +67,7 @@ label2: "Infini"
 
 5. Open `/etc/hosts` and add the following content:
 
-   > <font color='red'>Note: Update `192.168.1.60` the IP address of the running Infini docker server. For Windows, the host file is in `C:\Windows\System32\drivers\etc\hosts`.</font>
+   > Note: Update `192.168.1.60` the IP address of the running Infini docker server. For Windows, the host file is in `C:\Windows\System32\drivers\etc\hosts`.
 
    ```shell
     #/etc/hosts
