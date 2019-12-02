@@ -75,7 +75,7 @@ This document introduces how to install and configure MegaWise Docker.
 
 2. Download the latest NVIDIA driver installation file from [NVIDIA driver download page](https://www.nvidia.com/Download/index.aspx?lang=en-us).
 
-   > <font color='red'>Note: Installing or updating NVIDIA drivers comes with certain risks and may cause operating system crash. Please check whether your graphics card is compatible with the latest NVIDIA driver by visiting the [NVIDIA driver download page](https://www.nvidia.com/Download/index.aspx?lang=en-us) in advance.</font>
+   > Note: Installing or updating NVIDIA drivers comes with certain risks and may cause operating system crash. Please check whether your graphics card is compatible with the latest NVIDIA driver by visiting the [NVIDIA driver download page](https://www.nvidia.com/Download/index.aspx?lang=en-us) in advance.
 
 3. You must shut down the GUI before installing the NVIDIA driver. Press Ctrl+Alt+F1 to enter the CLI and run the following command to shut down the GUI:
 
