@@ -1,5 +1,5 @@
 ---
-id: "release_notes_0.4.0"
+id: "release_notes_content"
 lang: "en"
 title: "0.4.0 Release Notes"
 label1: "Release Notes"
