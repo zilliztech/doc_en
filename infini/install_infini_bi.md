@@ -30,8 +30,8 @@ lang: "en"
 2. Download the config files to the same folder.
 
    ```bash
-   $ wget https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/webserver/.env \
-   https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/webserver/docker-compose.yml
+   $ wget https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/webserver/.env \
+   https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/webserver/docker-compose.yml
    ```
 
 3. Modify the `.env` file.

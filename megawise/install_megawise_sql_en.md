@@ -209,8 +209,8 @@ If the terminal returns version information about the GPU, you can assume that t
 1. Download `install_megawise.sh` and `data_import.sh` to the same directory and make sure that you have execution access.
 
    ```bash
-   $ wget https://raw.githubusercontent.com/Infini-Analytics/infini/master/script/data_import.sh \
-   https://raw.githubusercontent.com/Infini-Analytics/infini/master/script/install_megawise.sh
+   $ wget https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/script/data_import.sh \
+   https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/script/install_megawise.sh
    $ chmod a+x *.sh
    ```
    
@@ -222,12 +222,12 @@ If the terminal returns version information about the GPU, you can assume that t
 
    > parameter 1：Absolute path of the installation folder of MegaWise. You must make sure that this folder does not exist.
    
-   > parameter 2：MegaWise Docker image id. The default value is '0.4.2'.
+   > parameter 2：MegaWise Docker image id. The default value is '0.5.0'.
    
    Example:
    
    ```bash
-   $ ./install_megawise.sh  /home/$USER/megawise '0.4.2'
+   $ ./install_megawise.sh  /home/$USER/megawise '0.5.0'
    ```
    
    The previous command performs the following operations:
@@ -260,7 +260,7 @@ If the terminal displays `Successfully installed MegaWise and imported test data
     $ sudo apt-get install postgresql-client-11
     ```
 
-    PostgreSQL client is installed to /usr/lib/postgresql/11/bin/ by default. After installation, run `which psql`. If the terminal does not return the correct location of the PostgreSQL client, please add the installation path to the environment variable.
+    PostgreSQL client is installed to `/usr/lib/postgresql/11/bin/` by default. After installation, run `which psql`. If the terminal does not return the correct location of the PostgreSQL client, please add the installation path to the environment variable.
 
     ```bash
     $ export PATH=/usr/lib/postgresql/11/bin:$PATH
@@ -277,35 +277,34 @@ If the terminal displays `Successfully installed MegaWise and imported test data
 
     ```bash
     $ cd $WORK_DIR/conf
-    $ wget https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/chewie_main.yaml \
-    https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/etcd.yaml \
-    https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/megawise_config_template.yaml \
-    https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/render_engine.yaml
+    $ wget https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/user_config.yaml \
+    https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/etcd.yaml \
+    https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/megawise_config_template.yaml \
+    https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/etcd_config_template.yaml
     ```
 
 6. Modify config files based on the hardware environment of MegaWise.
 
-   1. Open `chewie_main.yaml` in the `conf` directory.
+   1. Open `user_config.yaml` in the `conf` directory.
    
       1. Navigate to the following code:
 
           ```yaml
-          cache:  # size in GB
+          memory:
             cpu:
-                physical_memory: 16
-                partition_memory: 16
+              physical_memory: 16 # size in GB
+              partition_memory: 16 # size in GB
           
-            gpu:
-                gpu_num: 2
-                physical_memory: 2
-                partition_memory: 2
+            num: 2
+              physical_memory: 2  # size in GB
+              partition_memory: 2 # size in GB
           ```
 
           Configure the parameters based on the hardware environment of the server (The numbers are in GBs).
 
           For the `cpu` part, `physical_memory` and `partition_memory` respectively represents the available memory size for MegaWise and the memory size for the data cache partition. It is recommended that you set both `partition_memory` and `physical_memory` to more than 70 percent of the server memory.
       
-          For the `gpu` part, `gpu_num` represents the number of GPUs used by MegaWise. `physical_memory` and `partition_memory` respectively represents the available video memory size for MegaWise and the video memory size for the data cache partition. It is recommended that you reserve 2 GB of video memory to store the intermediate results during computation by setting `partition_memory` and `physical_memory` to a value that equals the video memory of a single GPU minus 2.
+          For the `gpu` part, `num` represents the number of GPUs used by MegaWise. `physical_memory` and `partition_memory` respectively represents the available video memory size for MegaWise and the video memory size for the data cache partition. It is recommended that you reserve 2 GB of video memory to store the intermediate results during computation by setting `partition_memory` and `physical_memory` to a value that equals the video memory of a single GPU minus 2.
 
    
     2. Open `megawise_config_template.yaml` in the `conf` directory.
@@ -317,16 +316,16 @@ If the terminal displays `Successfully installed MegaWise and imported test data
                 bitcode_lib: @bitcode_lib@
                 precompile: true
                 stage:
-                    build_task_context_parallelism: 1
-                    fetch_meta_parallelism: 1
-                    compile_parallelism: 1
-                    fetch_data_parallelism: 1
-                    compute_parallelism: 1
-                    output_parallelism: 1
+                  build_task_context_parallelism: 1
+                  fetch_meta_parallelism: 1
+                  compile_parallelism: 1
+                  fetch_data_parallelism: 1
+                  compute_parallelism: 1
+                  output_parallelism: 1
                 worker_num : 2
                 gpu:
-                    physical_memory: 2    # unit: GB
-                    partition_memory: 2   # unit: GB
+                  physical_memory: 2    # unit: GB
+                  partition_memory: 2   # unit: GB
                 cuda_profile_query_cnt: -1 #-1 means don't profile, positive integer means the number of queries to profile, other value invalid
             ```
 
@@ -334,9 +333,9 @@ If the terminal displays `Successfully installed MegaWise and imported test data
 
             | Parameter                    | Value                   |
             |--------------------------|-------------------------|
-            | `worker_num` | The value of `gpu_num` in `chewie_main.yaml`           |
-            | `physical_memory` |   The value of `physical_memory` in `chewie_main.yaml`          |
-            | `partition_memory` |   The value of `partition_memory` in `chewie_main.yaml`        |
+            | `worker_num` | The value of `gpu_num` in `user_config.yaml`           |
+            | `physical_memory` |   The value of `physical_memory` in `user_config.yaml`          |
+            | `partition_memory` |   The value of `partition_memory` in `user_config.yaml`        |
 
         2. Navigate to the following code and set parameter values:
 
@@ -363,13 +362,20 @@ If the terminal displays `Successfully installed MegaWise and imported test data
 
     ```bash
     $ sudo docker run --gpus all --shm-size 17179869184 \
-                            -v $WORK_DIR/conf:/megawise/conf \
-                            -v $WORK_DIR/data:/megawise/data \
-                            -v $WORK_DIR/server_data:/megawise/server_data \
-                            -v /tmp:/tmp \
-                            -v /home/$USER/.nv:/home/megawise/.nv \
-                            -p 5433:5432 \
-                            $IMAGE_ID
+                        -e USER=`id -u` -e GROUP=`id -g` \
+                        -v $WORK_DIR/conf:/megawise/conf \
+                        -v $WORK_DIR/data:/megawise/data \
+                        -v $WORK_DIR/logs:/megawise/logs \
+                        -v $WORK_DIR/server_data:/megawise/server_data \
+                        -v /home/$USER/.nv:/home/megawise/.nv \
+                        -p 5433:5432 \
+                        $IMAGE_ID
+    ```
+
+    > `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
+
+    ```bash
+    $ sudo docker image ls
     ```
 
     Parameter description
@@ -400,6 +406,18 @@ If the terminal displays `Successfully installed MegaWise and imported test data
     $ psql -U zilliz -p 5433 -h $IP_ADDR -d postgres
     ```
 
+    > `$USER_ID` can be acquired by the following command:
+
+    ```bash
+    $ id -u
+    ```
+
+    > `IP_ADDR` can be acquired by the following command:
+
+    ```bash
+    $ ifconfig
+    ```
+    
     MegaWise Docker creates a built-in database `postgres` after launch. A default user `zilliz` is created in the database. You will then be prompted to enter the password. The default password is `zilliz` .
     
     If the terminal displays the following information, you can assume that the connection to MegaWise is successful.
