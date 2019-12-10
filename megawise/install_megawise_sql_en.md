@@ -1,9 +1,6 @@
 ---
 id: "install_megawise"
 lang: "en"
-title: "Install MegaWise"
-label1: "User Manual"
-label2: "MegaWise"
 ---
 # Install MegaWise
 
@@ -22,18 +19,16 @@ This document introduces how to install and configure MegaWise Docker.
 | CPU                 |Intel CPU Sandy Bridge or higher|
 | RAM         | 16 GB or higher           |
 | Hard disk                  | 1 TB or higher         |
-|  |   |
 
 ### Software requirements
 
 
 | Component                     | Version                    |
 |--------------------------|-------------------------|
-| Operating system                 | Ubuntu 16.04 or higher |
+| Operating system                 | Ubuntu 16.04 only |
 | NVIDIA driver          | 410 or higher. The latest version is recommended.          |
 | Docker                   | 19.03 or higher         |
 | NVIDIA Container Toolkit |  1.0.5-1 or higher            |
-|  |   |
 
 ### Install NVIDIA driver
 
