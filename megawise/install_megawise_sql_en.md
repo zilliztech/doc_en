@@ -1,6 +1,7 @@
 ---
 id: "install_megawise"
 lang: "en"
+title: "Install MegaWise"
 ---
 # Install MegaWise
 
