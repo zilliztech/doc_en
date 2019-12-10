@@ -398,15 +398,25 @@ If the terminal returns version information about the GPU, you can assume that t
     ```bash
     MegaWise server is running...
     ```
-    
-> Note: If you need to connect to MegaWise outside the Docker, refer to Connect to MegaWise Outside the Docker for more information. If you need to connect to MegaWise inside the Docker, continue the following step.
 
-8. Enter the bash command of MegaWise docker and connect to MegaWise:
+### Connect to MegaWise Inside the Docker
+
+1. Enter the bash command of MegaWise docker and connect to MegaWise:
 
 ```bash
 $ sudo docker exec -u `id -u` -it <$MegaWise_Container_ID> bash
 $ cd script && ./connect.sh
 ```
+MegaWise Docker creates a built-in database `postgres` after launch. A default user `zilliz` is created in the database. You will then be prompted to enter the password. The default password is `zilliz` .
+    
+    If the terminal displays the following information, you can assume that the connection to MegaWise is successful.
+
+    ```bash
+    psql (11.1)
+    Type "help" for help.
+
+    postgres=>
+    ```
 
 ### Connect to MegaWise Outside the Docker
 
