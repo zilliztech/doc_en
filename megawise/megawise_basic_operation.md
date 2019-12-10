@@ -15,38 +15,6 @@ that the preceding element can be repeated. Where it enhances the clarity, SQL c
 
 ## Basic Operations
 
-
-### Connect the psql client to MegaWise
-
-Use the following command to connect to MegaWise:
-
-```bash
-$ psql -U zilliz -p 5433 -h $IP_ADDR -d postgres 
-``` 
-
-> `-U` specifies the username to connect to MegaWise.
-
-> `-p` specifies the server port of the MegaWise.
-
-> `-h` specifies the IP address of the MegaWise server.
-
-> `-d` specifies the name of the database to connect to.
-
-MegaWise Docker creates a built-in database `postgres` after launch. A default user `zilliz` is created in the database. You will then be prompted to enter the password. The default password is `zilliz` .
-
-    If the terminal displays the following information, you can assume that the connection to MegaWise is successful.
-
-    ```bash
-    psql (11.1)
-    Type "help" for help.
-
-    postgres=>
-    ```
-
-    >Note：If the connection timeouts, check whether the firewall settings are correct.
-
-
-
 ### Creating a database
 
 To create a new database, in this example named mydb, you use the following command:
