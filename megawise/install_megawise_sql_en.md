@@ -199,8 +199,9 @@ This document introduces how to install and configure MegaWise Docker.
 If the terminal returns version information about the GPU, you can assume that the NVIDIA container toolkit is successfully installed.
 
 
-## Automatically install
+## Automatically install 
 
+> Note: Automatic install is used for demo purposes only. Refer to [Manually install](#Manually install) for production deployment.
 
 1. Download `install_megawise.sh` and `data_import.sh` to the same directory and make sure that you have execution access.
 
@@ -397,8 +398,36 @@ If the terminal returns version information about the GPU, you can assume that t
     ```bash
     MegaWise server is running...
     ```
+    
+> Note: If you need to connect to MegaWise outside the Docker, refer to Connect to MegaWise Outside the Docker for more information. If you need to connect to MegaWise inside the Docker, continue the following step.
 
-8. Use MegaWise.
+8. Enter the bash command of MegaWise docker and connect to MegaWise:
+
+```bash
+$ sudo docker exec -u `id -u` -it <$MegaWise_Container_ID> bash
+$ cd script && ./connect.sh
+```
+
+### Connect to MegaWise Outside the Docker
+
+1. Stop MegaWise.
+
+```bash
+$ sudo docker stop <$MegaWise_Container_ID>
+```
+
+2. Navigate to the working directory of MegaWise and make the following changes:
+
+Open `postgresql.conf` under the `data` folder and change the value of `listen_addresses` to `*`.
+Open `pg\_hba.conf` under the `data` folder and add a line after `# IPv4 local connections`:
+```
+host   all      all     0.0.0.0/0      trust
+```
+3. Restart MegaWise.
+```bash
+$ sudo docker start <$MegaWise_Container_ID>
+```
+4. Use MegaWise.
   
     ```bash
     $ psql -U zilliz -p 5433 -h $IP_ADDR -d postgres
