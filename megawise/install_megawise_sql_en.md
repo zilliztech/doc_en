@@ -422,21 +422,21 @@ MegaWise Docker creates a built-in database `postgres` after launch. A default u
 
 1. Stop MegaWise.
 
-```bash
-$ sudo docker stop <$MegaWise_Container_ID>
-```
+   ```bash
+   $ sudo docker stop <$MegaWise_Container_ID>
+   ```
 
 2. Navigate to the working directory of MegaWise and make the following changes:
 
-Open `postgresql.conf` under the `data` folder and change the value of `listen_addresses` to `*`.
-Open `pg\_hba.conf` under the `data` folder and add a line after `# IPv4 local connections`:
-```
-host   all      all     0.0.0.0/0      trust
-```
+   1. Open `postgresql.conf` under the `data` folder and change the value of `listen_addresses` to `*`.
+   2. Open `pg\_hba.conf` under the `data` folder and add a line after `# IPv4 local connections`:
+   ```
+   host   all      all     0.0.0.0/0      trust
+   ```
 3. Restart MegaWise.
-```bash
-$ sudo docker start <$MegaWise_Container_ID>
-```
+   ```bash
+   $ sudo docker start <$MegaWise_Container_ID>
+   ```
 4. Use MegaWise.
   
     ```bash
