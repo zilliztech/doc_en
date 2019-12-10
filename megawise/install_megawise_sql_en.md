@@ -225,6 +225,8 @@ If the terminal returns version information about the GPU, you can assume that t
    $ ./install_megawise.sh  /home/$USER/megawise '0.5.0'
    ```
    
+   > Note: If you are a non-root user, you must add the user to the docker user group to run this script. Refer to [https://docs.docker.com/install/linux/linux-postinstall/](https://docs.docker.com/install/linux/linux-postinstall/) for more information.
+   
    The previous command performs the following operations:
 
      1. Pull MegaWise Docker image.
@@ -233,7 +235,7 @@ If the terminal returns version information about the GPU, you can assume that t
      4. Import sample data to MegaWise.
      5. Modify parameters to restart MegaWise.
 
-If the terminal displays `Successfully installed MegaWise and imported test data`, you can assume that MegaWise is successfully installed and sample data is imported.
+   If the terminal displays `Successfully installed MegaWise and imported test data`, you can assume that MegaWise is successfully installed and sample data is imported.
 
 ## Manually install
 
