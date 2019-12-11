@@ -217,7 +217,7 @@ If the terminal returns version information about the GPU, you can assume that t
    $ ./install_megawise.sh [parameter 1，required] [parameter 2，optional]
    ```
 
-   > parameter 1：Absolute path of the installation folder of MegaWise. You must make sure that this folder does not exist.
+   > parameter 1：Absolute path of the installation folder of MegaWise. You must make sure that this folder does not exist and the current user has read/write access to the folder. You cannot use `sudo` to make a folder with no write access the installation folder. 
    
    > parameter 2：MegaWise Docker image id. The default value is '0.5.0'.
    
@@ -403,10 +403,10 @@ If the terminal returns version information about the GPU, you can assume that t
 
 1. Enter the bash command of MegaWise docker and connect to MegaWise:
 
-```bash
-$ sudo docker exec -u `id -u` -it <$MegaWise_Container_ID> bash
-$ cd script && ./connect.sh
-```
+   ```bash
+   $ sudo docker exec -u `id -u` -it <$MegaWise_Container_ID> bash
+   $ cd script && ./connect.sh
+   ```
 MegaWise Docker creates a built-in database `postgres` after launch. A default user `zilliz` is created in the database. You will then be prompted to enter the password. The default password is `zilliz` .
     
     If the terminal displays the following information, you can assume that the connection to MegaWise is successful.
@@ -434,9 +434,48 @@ MegaWise Docker creates a built-in database `postgres` after launch. A default u
    host   all      all     0.0.0.0/0      trust
    ```
 3. Restart MegaWise.
+
+   > Note: Do not use `docker start <$MegaWise_Container_ID>` to restart MegaWise.
+
    ```bash
-   $ sudo docker start <$MegaWise_Container_ID>
-   ```
+    $ sudo docker run --gpus all --shm-size 17179869184 \
+                        -e USER=`id -u` -e GROUP=`id -g` \
+                        -v $WORK_DIR/conf:/megawise/conf \
+                        -v $WORK_DIR/data:/megawise/data \
+                        -v $WORK_DIR/logs:/megawise/logs \
+                        -v $WORK_DIR/server_data:/megawise/server_data \
+                        -v /home/$USER/.nv:/home/megawise/.nv \
+                        -p 5433:5432 \
+                        $IMAGE_ID
+    ```
+
+    > `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
+
+    ```bash
+    $ sudo docker image ls
+    ```
+
+    Parameter description
+
+    > `--shm-size`
+
+      The allocated memory size for a running Docker image in bytes. Use the value in the `physical_memory` parameter under `cpu`->`cache` in `chewie_main.yaml`.
+
+    > `-v`
+
+      Directory mapping between the host and the Docker image. Separated by `:`, the former part is the directory of the host and the latter part is the directory of the Docker image.
+
+      When launching the container, you can use `-v` to map local data files to the container to import local files to the MegaWise database.
+
+    > `-p`
+
+      Port mapping between the host and the Docker image. Separated by `:`, the former part is the port of the host and the latter part is the port of the Docker image. You can set the host to use any unoccupied port. In this tutorial, we use 5433.
+
+    Logging starts when the container starts running. If you can find the following content in the log, you can assume the MegaWise server is successfully running.
+
+    ```bash
+    MegaWise server is running...
+    ```
 4. Use MegaWise.
   
     ```bash
@@ -466,4 +505,4 @@ MegaWise Docker creates a built-in database `postgres` after launch. A default u
     postgres=>
     ```
 
-    >Note：If the connection timeouts, check whether the firewall settings are correct.
+    >Note：If the connection timeouts, check whether the firewall settings are correct. In the current version, you must import data every time MegaWise is restarted.
