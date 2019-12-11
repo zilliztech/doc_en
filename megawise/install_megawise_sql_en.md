@@ -244,10 +244,10 @@ If the terminal displays `Successfully installed MegaWise and imported test data
 
 1. Check the latest version number in [docker hub](https://hub.docker.com/r/zilliz/megawise/tags).
 
-2. Get the latest docker image of MegaWise.
+2. Get the 0.4.2 docker image of MegaWise.
 
     ```bash
-    $ sudo docker pull zilliz/megawise:$LATEST_VERSION
+    $ sudo docker pull zilliz/megawise:0.4.2
     ```
 
 3. Install PostgreSQL client.
