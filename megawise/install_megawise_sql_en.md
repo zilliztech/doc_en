@@ -381,7 +381,7 @@ If the terminal returns version information about the GPU, you can assume that t
 
     > `--shm-size`
 
-      The allocated memory size for a running Docker image in bytes. Use the value in the `physical_memory` parameter under `cpu`->`cache` in `chewie_main.yaml`.
+      The allocated memory size for a running Docker image in bytes. Use the value in the `physical_memory` parameter under `cpu`->`cache` in `user_config.yaml`.
 
     > `-v`
 
@@ -459,7 +459,7 @@ MegaWise Docker creates a built-in database `postgres` after launch. A default u
 
     > `--shm-size`
 
-      The allocated memory size for a running Docker image in bytes. Use the value in the `physical_memory` parameter under `cpu`->`cache` in `chewie_main.yaml`.
+      The allocated memory size for a running Docker image in bytes. Use the value in the `physical_memory` parameter under `cpu`->`cache` in `user_config.yaml`.
 
     > `-v`
 
