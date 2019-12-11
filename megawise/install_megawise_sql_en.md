@@ -430,8 +430,8 @@ MegaWise Docker creates a built-in database `postgres` after launch. A default u
 
 2. Navigate to the working directory of MegaWise and make the following changes:
 
-   1. Open `postgresql.conf` under the `data` folder and change the value of `listen_addresses` to `*`.
-   2. Open `pg\_hba.conf` under the `data` folder and add a line after `# IPv4 local connections`:
+   1. Open `postgresql.conf` under the `data` folder and change the value of `listen_addresses` to `'*'` (note the quote sign). You must also remove the comment sign `#`.
+   2. Open `pg\_hba.conf` under the `data` folder and add the following line after `# IPv4 local connections`:
    ```
    host   all      all     0.0.0.0/0      trust
    ```
