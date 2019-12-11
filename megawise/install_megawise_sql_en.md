@@ -243,10 +243,10 @@ If the terminal returns version information about the GPU, you can assume that t
 
 1. Check the latest version number in [docker hub](https://hub.docker.com/r/zilliz/megawise/tags).
 
-2. Get the latest docker image of MegaWise.
+2. Get the 0.5.0 docker image of MegaWise.
 
     ```bash
-    $ sudo docker pull zilliz/megawise:$LATEST_VERSION
+    $ sudo docker pull zilliz/megawise:0.5.0
     ```
 
 3. Install PostgreSQL client.
