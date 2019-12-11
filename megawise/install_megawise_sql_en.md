@@ -279,8 +279,8 @@ If the terminal returns version information about the GPU, you can assume that t
     $ wget https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/user_config.yaml \
     https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/etcd.yaml \
     https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/megawise_config_template.yaml \
-    https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/etcd_config_template.yaml \
-    https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/etcd_config.yaml
+    https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/etcd_config_template.yaml
+
     ```
 
 6. Modify config files based on the hardware environment of MegaWise.
