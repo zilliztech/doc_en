@@ -507,12 +507,17 @@ If the terminal returns version information about the GPU, you can assume that t
 
     > Note：If the connection timeouts, check whether the firewall settings are correct. In the current version, you must import data every time MegaWise is restarted.
     
-## Create a MegaWise user to connect to the Infini interactive interface
+## Create a MegaWise user and import data
 
-If you need to connect to the Infini interactive interface, create a user in `postgres` with username `zilliz` and password `zilliz`.
+Create a user in `postgres` with username `zilliz` and password `zilliz`.
 
 ```sql
 postgres=# CREATE USER zilliz WITH PASSWORD 'zilliz';
 postgres=# grant all privileges on database postgres to zilliz;
 ```
-    
+
+After creating a user, you can use the user to import data.
+
+## What's next
+
+[Install Infini](./install_infini)
