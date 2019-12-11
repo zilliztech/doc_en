@@ -63,16 +63,8 @@ lang: "en"
    $ docker-compose -f docker-compose.yml up
    ```
 
-5. Open `/etc/hosts` and add the following content:
 
-   > Note: Update `192.168.1.60` the IP address of the running Infini docker server. For Windows, the host file is in `C:\Windows\System32\drivers\etc\hosts`.
-
-   ```shell
-    #/etc/hosts
-    192.168.1.60 infini
-   ```
-
-6. Launch a browser. Chrome and Firefox are recommended.
+5. Launch a browser. Chrome and Firefox are recommended.
 
    ```shell
    # Please add the port number if you modified the 80 port
