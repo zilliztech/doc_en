@@ -409,9 +409,8 @@ If the terminal returns version information about the GPU, you can assume that t
    $ sudo docker exec -u `id -u` -it <$MegaWise_Container_ID> bash
    $ cd script && ./connect.sh
    ```
-MegaWise Docker creates a built-in database `postgres` after launch. A default user `zilliz` is created in the database. You will then be prompted to enter the password. The default password is `zilliz` .
     
-    If the terminal displays the following information, you can assume that the connection to MegaWise is successful.
+   If the terminal displays the following information, you can assume that the connection to MegaWise is successful.
 
     ```bash
     psql (11.1)
@@ -496,7 +495,6 @@ MegaWise Docker creates a built-in database `postgres` after launch. A default u
     $ ifconfig
     ```
     
-    MegaWise Docker creates a built-in database `postgres` after launch. A default user `zilliz` is created in the database. You will then be prompted to enter the password. The default password is `zilliz` .
     
     If the terminal displays the following information, you can assume that the connection to MegaWise is successful.
 
