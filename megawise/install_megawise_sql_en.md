@@ -235,7 +235,7 @@ If the terminal returns version information about the GPU, you can assume that t
      2. Download config files and sample data.
      3. Launch MegaWise.
      4. Import sample data to MegaWise.
-     5. Modify parameters to restart MegaWise.
+     5. Modify parameters.
 
    If the terminal displays `Successfully installed MegaWise and imported test data`, you can assume that MegaWise is successfully installed and sample data is imported.
 
@@ -413,10 +413,10 @@ If the terminal returns version information about the GPU, you can assume that t
    If the terminal displays the following information, you can assume that the connection to MegaWise is successful.
 
     ```bash
-    psql (11.1)
+    psql (11.6 (Ubuntu 11.6-1.pgdg18.04+1), server 11.1)
     Type "help" for help.
 
-    postgres=>
+    postgres=#
     ```
 
 ### Connect to MegaWise Outside the Docker
@@ -499,10 +499,20 @@ If the terminal returns version information about the GPU, you can assume that t
     If the terminal displays the following information, you can assume that the connection to MegaWise is successful.
 
     ```bash
-    psql (11.1)
+    psql (11.6 (Ubuntu 11.6-1.pgdg18.04+1), server 11.1)
     Type "help" for help.
 
-    postgres=>
+    postgres=#
     ```
 
-    >Note：If the connection timeouts, check whether the firewall settings are correct. In the current version, you must import data every time MegaWise is restarted.
+    > Note：If the connection timeouts, check whether the firewall settings are correct. In the current version, you must import data every time MegaWise is restarted.
+    
+## Create a MegaWise user to connect to the Infini interactive interface
+
+If you need to connect to the Infini interactive interface, create a user in `postgres` with username `zilliz` and password `zilliz`.
+
+```sql
+postgres=# CREATE USER zilliz WITH PASSWORD 'zilliz';
+postgres=# grant all privileges on database postgres to zilliz;
+```
+    
