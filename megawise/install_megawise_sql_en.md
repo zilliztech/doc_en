@@ -402,6 +402,12 @@ If the terminal returns version information about the GPU, you can assume that t
     MegaWise server is running...
     ```
 
+### Connect to MegaWise
+
+You can either connect to MegaWise inside the Docker or outside the Docker.
+
+> Note: To use the Infini interface, you must connect to MegaWise outside the Docker.
+
 ### Connect to MegaWise Inside the Docker
 
 1. Enter the bash command of MegaWise docker and connect to MegaWise:
