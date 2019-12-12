@@ -517,34 +517,42 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
     
 ## Create a MegaWise user and import data
 
-Create a user in `postgres` with username `zilliz` and password `zilliz`.
+1. Create a user in `postgres` with username `zilliz` and password `zilliz`.
 
-```bash
-postgres=# CREATE USER zilliz WITH PASSWORD 'zilliz';
-postgres=# grant all privileges on database postgres to zilliz;
-```
+   ```bash
+   postgres=# CREATE USER zilliz WITH PASSWORD 'zilliz';
+   postgres=# grant all privileges on database postgres to zilliz;
+   ```
 
-After creating a user, you can use the created user to import data. The following example shows how to create an extension, create a table, and import data.
+2. After creating a user, you can use the created user to import data. 
+   
+   Get example data:
+   
+   ```bash
+   $ wget -P /tmp https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/sample_data/nyc_taxi_data.csv
+   ```
 
-```bash
-postgres=# create extension zdb_fdw;
-postgres=# create table nyc_taxi(
- vendor_id text,
- tpep_pickup_datetime timestamp,
- tpep_dropoff_datetime timestamp,
- passenger_count int,
- trip_distance float,
- pickup_longitute float,
- pickup_latitute float,
- dropoff_longitute float,
- dropoff_latitute float,
- fare_amount float,
- tip_amount float,
- total_amount float
- );
-postgres=# copy nyc_taxi from '/tmp/nyc_taxi_data.csv'
- WITH DELIMITER ',' csv header;
-```
+   Create an extension, create a table, and import example data.
+
+   ```bash
+   postgres=# create extension zdb_fdw;
+   postgres=# create table nyc_taxi(
+    vendor_id text,
+    tpep_pickup_datetime timestamp,
+    tpep_dropoff_datetime timestamp,
+    passenger_count int,
+    trip_distance float,
+    pickup_longitute float,
+    pickup_latitute float,
+    dropoff_longitute float,
+    dropoff_latitute float,
+    fare_amount float,
+    tip_amount float,
+    total_amount float
+    );
+   postgres=# copy nyc_taxi from '/tmp/nyc_taxi_data.csv'
+    WITH DELIMITER ',' csv header;
+   ```
 
 > Note: If you need to create charts in the Infini interface, you must create the `zdb_fdw` extension. When you use `copy` to import data, ensure that the folder that the data resides is already mapped to MegaWise docker. This install guide has mapped the `tmp` folder to MegaWise Docker. So, you can use the `tmp` folder to store and import data.
 
