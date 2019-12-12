@@ -241,6 +241,8 @@ If the terminal returns version information about the GPU, you can assume that t
 
 ## Manually install
 
+### Install and run MegaWise
+
 1. Check the latest version number in [docker hub](https://hub.docker.com/r/zilliz/megawise/tags).
 
 2. Get the 0.5.0 docker image of MegaWise.
