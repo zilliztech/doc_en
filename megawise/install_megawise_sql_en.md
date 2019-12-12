@@ -237,7 +237,7 @@ If the terminal returns version information about the GPU, you can assume that t
      4. Import sample data to MegaWise.
      5. Modify parameters.
 
-   If the terminal displays `Successfully installed MegaWise and imported test data`, you can assume that MegaWise is successfully installed and sample data is imported.
+   If the terminal displays `Successfully installed MegaWise and imported test data`, you can assume that MegaWise is successfully installed and sample data is imported. After automatic installation, the MegaWise Docker contains a built-in database, `postgres`. The default username is `zilliz` and the password is `zilliz`.
 
 ## Manually install
 
@@ -369,6 +369,7 @@ If the terminal returns version information about the GPU, you can assume that t
                         -v $WORK_DIR/logs:/megawise/logs \
                         -v $WORK_DIR/server_data:/megawise/server_data \
                         -v /home/$USER/.nv:/home/megawise/.nv \
+                        -v /tmp:/tmp \
                         -p 5433:5432 \
                         $IMAGE_ID
     ```
@@ -381,17 +382,17 @@ If the terminal returns version information about the GPU, you can assume that t
 
     Parameter description
 
-    > `--shm-size`
+    - `--shm-size`
 
       The allocated memory size for a running Docker image in bytes. Use the value in the `physical_memory` parameter under `cpu`->`cache` in `user_config.yaml`.
 
-    > `-v`
+    - `-v`
 
       Directory mapping between the host and the Docker image. Separated by `:`, the former part is the directory of the host and the latter part is the directory of the Docker image.
 
       When launching the container, you can use `-v` to map local data files to the container to import local files to the MegaWise database.
 
-    > `-p`
+    - `-p`
 
       Port mapping between the host and the Docker image. Separated by `:`, the former part is the port of the host and the latter part is the port of the Docker image. You can set the host to use any unoccupied port. In this tutorial, we use 5433.
 
@@ -446,6 +447,7 @@ If the terminal returns version information about the GPU, you can assume that t
                         -v $WORK_DIR/logs:/megawise/logs \
                         -v $WORK_DIR/server_data:/megawise/server_data \
                         -v /home/$USER/.nv:/home/megawise/.nv \
+                        -v /tmp:/tmp \
                         -p 5433:5432 \
                         $IMAGE_ID
     ```
@@ -458,17 +460,17 @@ If the terminal returns version information about the GPU, you can assume that t
 
     Parameter description
 
-    > `--shm-size`
+    - `--shm-size`
 
       The allocated memory size for a running Docker image in bytes. Use the value in the `physical_memory` parameter under `cpu`->`cache` in `user_config.yaml`.
 
-    > `-v`
+    - `-v`
 
       Directory mapping between the host and the Docker image. Separated by `:`, the former part is the directory of the host and the latter part is the directory of the Docker image.
 
       When launching the container, you can use `-v` to map local data files to the container to import local files to the MegaWise database.
 
-    > `-p`
+   - `-p`
 
       Port mapping between the host and the Docker image. Separated by `:`, the former part is the port of the host and the latter part is the port of the Docker image. You can set the host to use any unoccupied port. In this tutorial, we use 5433.
 
@@ -511,12 +513,34 @@ If the terminal returns version information about the GPU, you can assume that t
 
 Create a user in `postgres` with username `zilliz` and password `zilliz`.
 
-```sql
+```bash
 postgres=# CREATE USER zilliz WITH PASSWORD 'zilliz';
 postgres=# grant all privileges on database postgres to zilliz;
 ```
 
-After creating a user, you can use the user to import data.
+After creating a user, you can use the created user to import data. The following example shows how to create an extension, create a table, and import data.
+
+```bash
+postgres=# create extension zdb_fdw;
+postgres=# create table nyc_taxi(
+ vendor_id text,
+ tpep_pickup_datetime timestamp,
+ tpep_dropoff_datetime timestamp,
+ passenger_count int,
+ trip_distance float,
+ pickup_longitute float,
+ pickup_latitute float,
+ dropoff_longitute float,
+ dropoff_latitute float,
+ fare_amount float,
+ tip_amount float,
+ total_amount float
+ );
+postgres=# copy nyc_taxi from '/tmp/nyc_taxi_data.csv'
+ WITH DELIMITER ',' csv header;
+```
+
+> Note: If you need to create charts in the Infini interface, you must create the `zdb_fdw` extension. When you use `copy` to import data, ensure that the folder that the data resides is already mapped to MegaWise docker. This install guide has mapped the `tmp` folder to MegaWise Docker. So, you can use the `tmp` folder to store and import data.
 
 ## What's next
 
