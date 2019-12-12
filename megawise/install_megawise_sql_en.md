@@ -410,7 +410,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
 
 > Note: To use the Infini interface, you must connect to MegaWise outside the Docker.
 
-### Connect to MegaWise Inside the Docker
+#### Connect to MegaWise Inside the Docker
 
 1. Enter the bash command of MegaWise docker and connect to MegaWise:
 
@@ -428,7 +428,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
     postgres=#
     ```
 
-### Connect to MegaWise Outside the Docker
+#### Connect to MegaWise Outside the Docker
 
 1. Stop MegaWise.
 
