@@ -157,8 +157,9 @@ This document introduces how to install and configure MegaWise Docker.
 5. Run the following command again to check whether Docker is successfully installed. If the terminal returns version information about Docker, you can assume that Docker is successfully installed.
 
    ```bash
-   $ sudo docker -v
+   $ docker -v
    ```
+   > Note: If you are a non-root user, it is recommended that you add the user to the `docker` user group. Otherwise, you need to add `sudo` before a `docker` command.
 
 ### Install NVIDIA container toolkit
 
@@ -193,7 +194,7 @@ This document introduces how to install and configure MegaWise Docker.
 5. Validate whether NVIDIA container toolkit is successfully installed.
 
    ```bash
-   $ sudo docker run --gpus all nvidia/cuda:9.0-base nvidia-smi
+   $ docker run --gpus all nvidia/cuda:9.0-base nvidia-smi
    ```
 
 If the terminal returns version information about the GPU, you can assume that the NVIDIA container toolkit is successfully installed.
@@ -248,7 +249,7 @@ If the terminal returns version information about the GPU, you can assume that t
 2. Get the 0.5.0 docker image of MegaWise.
 
     ```bash
-    $ sudo docker pull zilliz/megawise:0.5.0
+    $ docker pull zilliz/megawise:0.5.0
     ```
 
 3. Install PostgreSQL client.
@@ -364,7 +365,7 @@ If the terminal returns version information about the GPU, you can assume that t
 7. Run MegaWise.
 
     ```bash
-    $ sudo docker run --gpus all --shm-size 17179869184 \
+    $ docker run --gpus all --shm-size 17179869184 \
                         -e USER=`id -u` -e GROUP=`id -g` \
                         -v $WORK_DIR/conf:/megawise/conf \
                         -v $WORK_DIR/data:/megawise/data \
@@ -379,7 +380,7 @@ If the terminal returns version information about the GPU, you can assume that t
     > Note: `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
 
     ```bash
-    $ sudo docker image ls
+    $ docker image ls
     ```
     
     > Note: `-v /tmp:/tmp` specifies mapping to the `tmp` folder. In this guide, it is used to store example data. You can also customize the mapping folder.
@@ -418,7 +419,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
 1. Enter the bash command of MegaWise docker and connect to MegaWise:
 
    ```bash
-   $ sudo docker exec -u `id -u` -it <$MegaWise_Container_ID> bash
+   $ docker exec -u `id -u` -it <$MegaWise_Container_ID> bash
    $ cd script && ./connect.sh
    ```
     
@@ -436,7 +437,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
 1. Stop MegaWise.
 
    ```bash
-   $ sudo docker stop <$MegaWise_Container_ID>
+   $ docker stop <$MegaWise_Container_ID>
    ```
 
 2. Navigate to the working directory of MegaWise and make the following changes:
@@ -451,7 +452,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
    > Note: Do not use `docker start <$MegaWise_Container_ID>` to restart MegaWise.
 
    ```bash
-    $ sudo docker run --gpus all --shm-size 17179869184 \
+    $ docker run --gpus all --shm-size 17179869184 \
                         -e USER=`id -u` -e GROUP=`id -g` \
                         -v $WORK_DIR/conf:/megawise/conf \
                         -v $WORK_DIR/data:/megawise/data \
@@ -466,7 +467,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
     > Note: `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
 
     ```bash
-    $ sudo docker image ls
+    $ docker image ls
     ```
     
     > Note: `-v /tmp:/tmp` specifies mapping to the `tmp` folder. In this guide, it is used to store example data. You can also customize the mapping folder.
