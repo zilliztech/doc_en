@@ -1,12 +1,12 @@
 ---
-id: "install_megawise"
+id: "install_megawise_powerpc"
 lang: "en"
-title: "Install MegaWise (x86 Platform)"
+title: "Install MegaWise (PowerPC Platform)"
 ---
-# Install MegaWise (x86 Platform)
+# Install MegaWise (PowerPC Platform)
 
 
-This document introduces how to install and configure MegaWise Docker in the x86 platform.
+This document introduces how to install and configure MegaWise Docker in the PowerPC platform.
 
 
 ## Prerequisites
@@ -26,233 +26,45 @@ This document introduces how to install and configure MegaWise Docker in the x86
 
 | Component                     | Version                    |
 |--------------------------|-------------------------|
-| Operating system                 | Ubuntu 16.04 or higher |
+| Operating system                 | CentOS 7 or higher |
 | NVIDIA driver          | 410 or higher. The latest version is recommended.          |
-| Docker                   | 19.03 or higher         |
-| NVIDIA Container Toolkit |  1.0.5-1 or higher            |
+| Docker                   | 18.03 only         |
+| NVIDIA Container Runtime |  Latest           |
 
-### Install NVIDIA driver
+### Install NVIDIA driver, Docker, and NVIDIA Container Runtime
 
-1. Disable the Nouveau driver.
+Refer to the following websites to learn how to install these software products:
 
-   You must disable the Nouveau driver before installing the NVIDIA driver. Use the following command to check whether the Nouveau driver is enabled.
+- Docker: [https://www.docker.com/](https://www.docker.com/)
+- NVIDIA driver: [https://www.nvidia.com/Download/index.aspx?lang=en-us](https://www.nvidia.com/Download/index.aspx?lang=en-us)
+- NVIDIA container runtime: [https://github.com/NVIDIA/nvidia-container-runtime](https://github.com/NVIDIA/nvidia-container-runtime)
 
-   ```bash
-   $ lsmod | grep nouveau  
-   ```
+> Note: Use the following command to check the installed NVIDIA driver version:
 
-   If the command returns any information about the Nouveau driver, you need to complete the following steps to disable the Nouveau driver:
+```bash
+$ sudo nvidia-smi
+```
 
-    1. Create the file `/etc/modprobe.d/blacklist-nouveau.conf` and add the following content:
+> Note: Use the following command to check whether Docker and NVIDIA Container Runtime are successfully installed:
 
-        ```
-        blacklist nouveau
-        options nouveau modeset=0  
-        ```
+```bash
+$ docker run --runtime=nvidia --rm nvidia/cuda-ppc64le nvidia-smi
+```
 
-    2. Run the following command and reboot:
-
-        ```bash
-        $ sudo update-initramfs -u
-        $ sudo reboot  
-        ```
-
-    3. Confirm the Nouveau driver is disabled. The terminal does not return any information if the Nouveau driver is disabled.
-
-        ```bash
-        $ lsmod | grep nouveau
-        ```
-        
-        If lsmod is not installed, you need to install lsmod before running the previous command.
-
-        ```bash
-        $ sudo apt-get install lsmod
-        ```
-
-2. Download the latest NVIDIA driver installation file from [NVIDIA driver download page](https://www.nvidia.com/Download/index.aspx?lang=en-us).
-
-   > Note: Installing or updating NVIDIA drivers comes with certain risks and may cause operating system crash. Please check whether your graphics card is compatible with the latest NVIDIA driver by visiting the [NVIDIA driver download page](https://www.nvidia.com/Download/index.aspx?lang=en-us) in advance.
-
-3. You must shut down the GUI before installing the NVIDIA driver. Press Ctrl+Alt+F1 to enter the CLI and run the following command to shut down the GUI:
-
-   ```bash
-   $ sudo service lightdm stop
-   ```
-   
-4. If you already have an NVIDIA driver installed, please remove the installed driver before installing a new one.
-
-   ```bash
-   $ sudo apt-get remove nvidia-*
-   ```
-   
-5. Give execute permission to the installation file and install the driver software. The following example assumes the installation file is downloaded to the `/home` directory.
-
-   ```bash
-   $ sudo chmod a+x NVIDIA-Linux-x86_64-430.50.run
-   $ sudo ./NVIDIA-Linux-x86_64-430.50.run
-   ```
-
-6. Restart the operating system.
-
-   ```bash
-   $ sudo reboot  
-   ```
-
-7. Check whether the installation is successful.
-
-   ```bash
-   $ sudo nvidia-smi  
-   ```
-
-   If the installation is successful, the terminal will return driver information which is similar to the following example:
-
-   ```
-   +-----------------------------------------------------------------------------+
-   | NVIDIA-SMI 430.34       Driver Version: 430.34       CUDA Version: 10.1     |
-   |-------------------------------+----------------------+----------------------+
-   | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-   | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-   |===============================+======================+======================|
-   |   0  GeForce GTX 1660    Off  | 00000000:01:00.0  On |                  N/A |
-   | 28%   49C    P0    24W / 130W |   2731MiB /  5941MiB |      1%      Default |
-   +-------------------------------+----------------------+----------------------+
-   ```
-
-### Install Docker
-
-1. Update the package lists.
-
-   ```bash
-   $ sudo apt-get update
-   ```
-
-2. Use curl to download the latest Docker.
-
-   ```bash
-   $ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-   $ sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-   ```
-   
-   If curl is not installed, you need to install curl before running the previous command.
-   
-   ```bash
-   $ sudo apt-get install curl
-   ```
-   
-3. Update the apt-get repository.
-
-   ```bash
-   $ sudo apt-get update
-   ```
-
-4. Install Docker with the corresponding command-line interface and runtime environment.
-
-   ```bash
-   $ sudo apt-get install docker-ce docker-ce-cli containerd.io
-   ```
-
-5. Run the following command again to check whether Docker is successfully installed. If the terminal returns version information about Docker, you can assume that Docker is successfully installed.
-
-   ```bash
-   $ docker -v
-   ```
-   > Note: If you are a non-root user, it is recommended that you add the user to the `docker` user group. Otherwise, you need to add `sudo` before a `docker` command.
-
-### Install NVIDIA container toolkit
-
-1. Use curl to add gpg key.
-
-   ```bash
-   $ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
-   sudo apt-key add -
-   $ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-   ```
-
-2. Update the package version to download.
-
-   ```bash
-   $ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
-   sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-   ```
-
-3. Install NVIDIA runtime.
-
-   ```bash
-   $ sudo apt-get update
-   $ sudo apt-get install -y nvidia-container-toolkit
-   ```
-
-4. Restart Docker daemon.
-
-   ```bash
-   $ sudo systemctl restart docker
-   ```
-
-5. Validate whether NVIDIA container toolkit is successfully installed.
-
-   ```bash
-   $ docker run --gpus all nvidia/cuda:9.0-base nvidia-smi
-   ```
-
-If the terminal returns version information about the GPU, you can assume that the NVIDIA container toolkit is successfully installed.
-
-
-## Automatically install 
-
-> Note: Automatic install is used for demo purposes only. Refer to [Manually install](#Manually install) for production deployment.
-
-1. Download `install_megawise.sh` and `data_import.sh` to the same directory and make sure that you have execution access.
-
-   ```bash
-   $ wget https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/script/data_import.sh \
-   https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/script/install_megawise.sh
-   $ chmod a+x *.sh
-   ```
-   
-2. Install MegaWise and import sample data.
-
-   ```bash
-   $ ./install_megawise.sh [parameter 1，required] [parameter 2，optional]
-   ```
-
-   > parameter 1：Absolute path of the installation folder of MegaWise. You must make sure that this folder does not exist and the current user has read/write access to the folder. You cannot use `sudo` to make a folder with no write access the installation folder. 
-   
-   > parameter 2：MegaWise Docker image id. The default value is '0.5.0'.
-   
-   Example:
-   
-   ```bash
-   $ ./install_megawise.sh  /home/$USER/megawise '0.5.0'
-   ```
-   
-   > Note: If you are a non-root user, you must add the user to the docker user group to run this script. Refer to [https://docs.docker.com/install/linux/linux-postinstall/](https://docs.docker.com/install/linux/linux-postinstall/) for more information.
-   
-   The previous command performs the following operations:
-
-     1. Pull MegaWise Docker image.
-     2. Download config files and sample data.
-     3. Launch MegaWise.
-     4. Import sample data to MegaWise.
-     5. Modify parameters.
-
-   If the terminal displays `Successfully installed MegaWise and imported test data`, you can assume that MegaWise is successfully installed and sample data is imported. After automatic installation, the MegaWise Docker contains a built-in database, `postgres`. The default username is `zilliz` and the password is `zilliz`.
-
-## Manually install
+> Note: If you are a non-root user, you are recommended to add the user to the `docker` user group. Otherwise, you need to add `sudo` before `docker`
+. Refer to [https://docs.docker.com/install/linux/linux-postinstall/](https://docs.docker.com/install/linux/linux-postinstall/) for more information.
 
 ### Install and run MegaWise
 
-1. Check the latest version number in [docker hub](https://hub.docker.com/r/zilliz/megawise/tags).
+> Note: Do not use a root user to install MegaWise.
 
-2. Get the 0.5.0 docker image of MegaWise.
+1. Get the 0.5.0-ppc64le docker image of MegaWise.
 
     ```bash
-    $ docker pull zilliz/megawise:0.5.0
+    $ docker pull zilliz/megawise:0.5.0-ppc64le
     ```
 
-3. Install PostgreSQL client.
+2. Install PostgreSQL client.
 
     ```bash
     $ sudo apt-get install curl ca-certificates
@@ -268,14 +80,14 @@ If the terminal returns version information about the GPU, you can assume that t
     $ export PATH=/usr/lib/postgresql/11/bin:$PATH
     ```
 
-4. Create a new folder as the working folder.
+3. Create a new folder as the working folder.
 
     ```bash
     $ cd $WORK_DIR
     $ mkdir conf
     ```
 
-5. Get MegaWise config files.
+4. Get MegaWise config files.
 
     ```bash
     $ cd $WORK_DIR/conf
@@ -287,7 +99,7 @@ If the terminal returns version information about the GPU, you can assume that t
 
     ```
 
-6. Modify config files based on the hardware environment of MegaWise.
+5. Modify config files based on the hardware environment of MegaWise.
 
    1. Open `user_config.yaml` in the `conf` directory.
    
@@ -362,10 +174,10 @@ If the terminal returns version information about the GPU, you can assume that t
             `cache_size` in `hash_config` represents the memory size for encoding string hashes in bytes.
 
 
-7. Run MegaWise.
+6. Run MegaWise.
 
     ```bash
-    $ docker run --gpus all --shm-size 17179869184 \
+    $ docker run -d --runtime=nvidia --shm-size 17179869184 \
                         -e USER=`id -u` -e GROUP=`id -g` \
                         -v $WORK_DIR/conf:/megawise/conf \
                         -v $WORK_DIR/data:/megawise/data \
@@ -419,7 +231,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
 1. Enter the bash command of MegaWise docker and connect to MegaWise:
 
    ```bash
-   $ docker exec -u `id -u` -it <$MegaWise_Container_ID> bash
+   $ docker exec -u megawise -it <$MegaWise_Container_ID> bash
    $ cd script && ./connect.sh
    ```
     
@@ -452,7 +264,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
    > Note: Do not use `docker start <$MegaWise_Container_ID>` to restart MegaWise.
 
    ```bash
-    $ docker run --gpus all --shm-size 17179869184 \
+    $ docker run -d --runtime=nvidia --shm-size 17179869184 \
                         -e USER=`id -u` -e GROUP=`id -g` \
                         -v $WORK_DIR/conf:/megawise/conf \
                         -v $WORK_DIR/data:/megawise/data \
