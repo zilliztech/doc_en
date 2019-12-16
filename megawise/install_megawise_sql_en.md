@@ -1,12 +1,12 @@
 ---
 id: "install_megawise"
 lang: "en"
-title: "Install MegaWise"
+title: "Install MegaWise (x86 Platform)"
 ---
-# Install MegaWise
+# Install MegaWise (x86 Platform)
 
 
-This document introduces how to install and configure MegaWise Docker.
+This document introduces how to install and configure MegaWise Docker in the x86 platform.
 
 
 ## Prerequisites
