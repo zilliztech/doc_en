@@ -56,7 +56,7 @@ $ docker run --runtime=nvidia --rm nvidia/cuda-ppc64le nvidia-smi
 
 ### Install and run MegaWise
 
-> Note: Do not use a root user to install MegaWise.
+> Note: Do not use a root user to install or run MegaWise Docker.
 
 1. Get the 0.5.0-ppc64le docker image of MegaWise.
 
