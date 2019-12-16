@@ -48,12 +48,21 @@
       },
       {
         "id": "install_megawise",
-        "title": "Install MegaWise",
+        "title": "Install MegaWise (x86 Platform)",
         "lang": "en",
         "label1": "User Manual",
         "label2": "MegaWise Data Analytics Engine",
         "label3": "",
         "order": 1
+      },
+      {
+        "id": "install_megawise_powerpc",
+        "title": "Install MegaWise (PowerPC Platform)",
+        "lang": "en",
+        "label1": "User Manual",
+        "label2": "MegaWise Data Analytics Engine",
+        "label3": "",
+        "order": 2
       },
       {
         "id": "megawise_basic_operation",
@@ -62,7 +71,7 @@
         "label1": "User Manual",
         "label2": "MegaWise Data Analytics Engine",
         "label3": "",
-        "order": 2
+        "order": 3
       },
       
       {
@@ -72,7 +81,7 @@
         "label1": "User Manual",
         "label2": "MegaWise Data Analytics Engine",
         "label3": "",
-        "order": 3,
+        "order": 4,
         "isMenu": true
       },
       {
