@@ -376,11 +376,14 @@ If the terminal returns version information about the GPU, you can assume that t
                         $IMAGE_ID
     ```
 
-    > `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
+    > Note: `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
 
     ```bash
     $ sudo docker image ls
     ```
+    
+    > Note: `-v /tmp:/tmp` specifies mapping to the `tmp` folder. In this guide, it is used to store example data. You can also customize the mapping folder.
+
 
     Parameter description
 
@@ -460,11 +463,13 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
                         $IMAGE_ID
     ```
 
-    > `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
+    > Note: `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
 
     ```bash
     $ sudo docker image ls
     ```
+    
+    > Note: `-v /tmp:/tmp` specifies mapping to the `tmp` folder. In this guide, it is used to store example data. You can also customize the mapping folder.
 
     Parameter description
 
