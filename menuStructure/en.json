@@ -53,7 +53,8 @@
         "label1": "User Manual",
         "label2": "MegaWise Data Analytics Engine",
         "label3": "",
-        "order": 1
+        "order": 1,
+        "isMenu": true
       },
       {
         "id": "install_megawise",
