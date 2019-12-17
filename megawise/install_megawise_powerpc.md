@@ -13,16 +13,16 @@ This document introduces how to install and configure MegaWise Docker in the Pow
 
 ### Hardware requirements
 
-
 | Component                     | Configuration                   |
 |--------------------------|-------------------------|
 | GPU |  NVIDIA Pascal or higher            |
-| CPU                 |Intel CPU Sandy Bridge or higher|
+| CPU                 | ppc64le architecture|
 | RAM         | 16 GB or higher           |
 | Hard disk                  | 1 TB or higher         |
 
-### Software requirements
+> Note: PowerPC CPUs other than the ppc64le architecture are not tested and may not support MegaWise. 
 
+### Software requirements
 
 | Component                     | Version                    |
 |--------------------------|-------------------------|
@@ -30,7 +30,6 @@ This document introduces how to install and configure MegaWise Docker in the Pow
 | NVIDIA driver          | 410 or higher. The latest version is recommended.          |
 | Docker                   | 18.03 only         |
 | NVIDIA Container Runtime |  Latest           |
-
 
 > Note: The PowerPC platform has different software requirements from the x86 platform. Please check whether the operating system and the Docker version are supported. The PowerPC platform does not support NVIDIA Container Toolkit, you must use NVIDIA Container Runtime instead. 
 
@@ -102,9 +101,7 @@ $ docker run --runtime=nvidia --rm nvidia/cuda-ppc64le nvidia-smi
 
     ```
 
-5. Modify config files based on the hardware environment of MegaWise.
-
-   1. Open `user_config.yaml` in the `conf` directory.
+5. Modify config files based on the hardware environment of MegaWise. Open `user_config.yaml` in the `conf` directory.
    
       1. Navigate to the following code:
 
@@ -124,57 +121,6 @@ $ docker run --runtime=nvidia --rm nvidia/cuda-ppc64le nvidia-smi
           For the `cpu` part, `physical_memory` and `partition_memory` respectively represents the available memory size for MegaWise and the memory size for the data cache partition. It is recommended that you set both `partition_memory` and `physical_memory` to more than 70 percent of the server memory.
       
           For the `gpu` part, `num` represents the number of GPUs used by MegaWise. `physical_memory` and `partition_memory` respectively represents the available video memory size for MegaWise and the video memory size for the data cache partition. It is recommended that you reserve 2 GB of video memory to store the intermediate results during computation by setting `partition_memory` and `physical_memory` to a value that equals the video memory of a single GPU minus 2.
-
-   
-    2. Open `megawise_config_template.yaml` in the `conf` directory.
-   
-        1. Navigate to the following code and set parameter values:
-
-            ```yaml
-              worker_config:
-                bitcode_lib: @bitcode_lib@
-                precompile: true
-                stage:
-                  build_task_context_parallelism: 1
-                  fetch_meta_parallelism: 1
-                  compile_parallelism: 1
-                  fetch_data_parallelism: 1
-                  compute_parallelism: 1
-                  output_parallelism: 1
-                worker_num : 2
-                gpu:
-                  physical_memory: 2    # unit: GB
-                  partition_memory: 2   # unit: GB
-                cuda_profile_query_cnt: -1 #-1 means don't profile, positive integer means the number of queries to profile, other value invalid
-            ```
-
-            Set the values of some parameters per the following table:
-
-            | Parameter                    | Value                   |
-            |--------------------------|-------------------------|
-            | `worker_num` | The value of `gpu_num` in `user_config.yaml`           |
-            | `physical_memory` |   The value of `physical_memory` in `user_config.yaml`          |
-            | `partition_memory` |   The value of `partition_memory` in `user_config.yaml`        |
-
-        2. Navigate to the following code and set parameter values:
-
-            ```yaml
-              string_config:
-                dict_config:
-                  cache_size: 21474836480  # 20G
-                  split_threshold: 1000000
-                  split_each: 100000
-                  small_scale_num: 4000    # try not to use the temporary id
-                hash_config:
-                  cache_size: 21474836480  # 20G
-                  bucket_num: 1999993      # prime number is a good choice
-                  bucket_size: 500         # make sure that each string is shorter than bucket_size-5
-                  file_size: 104857600     # 100M
-            ```
-
-            `cache_size` in `dict_config` represents the memory size for encoding string dictionaries in bytes. 
-
-            `cache_size` in `hash_config` represents the memory size for encoding string hashes in bytes.
 
 
 6. Run MegaWise.
