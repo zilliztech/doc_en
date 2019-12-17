@@ -13,16 +13,16 @@ This document introduces how to install and configure MegaWise Docker in the Pow
 
 ### Hardware requirements
 
-
 | Component                     | Configuration                   |
 |--------------------------|-------------------------|
 | GPU |  NVIDIA Pascal or higher            |
-| CPU                 |Intel CPU Sandy Bridge or higher|
+| CPU                 | ppc64le architecture|
 | RAM         | 16 GB or higher           |
 | Hard disk                  | 1 TB or higher         |
 
-### Software requirements
+> Note: PowerPC CPUs other than the ppc64le architecture are not tested and may not support MegaWise. 
 
+### Software requirements
 
 | Component                     | Version                    |
 |--------------------------|-------------------------|
@@ -30,7 +30,6 @@ This document introduces how to install and configure MegaWise Docker in the Pow
 | NVIDIA driver          | 410 or higher. The latest version is recommended.          |
 | Docker                   | 18.03 only         |
 | NVIDIA Container Runtime |  Latest           |
-
 
 > Note: The PowerPC platform has different software requirements from the x86 platform. Please check whether the operating system and the Docker version are supported. The PowerPC platform does not support NVIDIA Container Toolkit, you must use NVIDIA Container Runtime instead. 
 
