@@ -31,6 +31,9 @@ This document introduces how to install and configure MegaWise Docker in the Pow
 | Docker                   | 18.03 only         |
 | NVIDIA Container Runtime |  Latest           |
 
+
+> Note: The PowerPC platform has different software requirements from the x86 platform. Please check whether the operating system and the Docker version are supported. The PowerPC platform does not support NVIDIA Container Toolkit, you must use NVIDIA Container Runtime instead. 
+
 ### Install NVIDIA driver, Docker, and NVIDIA Container Runtime
 
 Refer to the following websites to learn how to install these software products:
