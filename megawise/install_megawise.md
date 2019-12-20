@@ -8,6 +8,7 @@ title: "Install MegaWise (x86 Platform)"
 
 This document introduces how to install and configure MegaWise Docker in the x86 platform.
 
+> Note: In the current version, you must import data again every time MegaWise is restarted.
 
 ## Prerequisites
 
@@ -244,15 +245,14 @@ If the terminal returns version information about the GPU, you can assume that t
 
 ### Install and run MegaWise
 
-1. Check the latest version number in [docker hub](https://hub.docker.com/r/zilliz/megawise/tags).
 
-2. Get the 0.5.0 docker image of MegaWise.
+1. Get the 0.5.0 docker image of MegaWise.
 
     ```bash
     $ docker pull zilliz/megawise:0.5.0
     ```
 
-3. Install PostgreSQL client.
+2. Install PostgreSQL client.
 
     ```bash
     $ sudo apt-get install curl ca-certificates
@@ -268,14 +268,14 @@ If the terminal returns version information about the GPU, you can assume that t
     $ export PATH=/usr/lib/postgresql/11/bin:$PATH
     ```
 
-4. Create a new folder as the working folder.
+3. Create a new folder as the working folder.
 
     ```bash
     $ cd $WORK_DIR
     $ mkdir conf
     ```
 
-5. Get MegaWise config files.
+4. Get MegaWise config files.
 
     ```bash
     $ cd $WORK_DIR/conf
@@ -287,7 +287,7 @@ If the terminal returns version information about the GPU, you can assume that t
 
     ```
 
-6. Modify config files based on the hardware environment of MegaWise.
+5. Modify config files based on the hardware environment of MegaWise.
 
    1. Open `user_config.yaml` in the `conf` directory. Navigate to the following code:
 
@@ -304,52 +304,57 @@ If the terminal returns version information about the GPU, you can assume that t
 
           Configure the parameters based on the hardware environment of the server (The numbers are in GBs).
 
-          For the `cpu` part, `physical_memory` and `partition_memory` respectively represents the available memory size for MegaWise and the memory size for the data cache partition. It is recommended that you set both `partition_memory` and `physical_memory` to more than 70 percent of the server memory.
+          For the `cpu` part, `physical_memory` and `partition_memory` respectively represents the available memory size for MegaWise and the memory size for the data cache partition. It is recommended that you set both `partition_memory` and `physical_memory` to more than 70 percent of the available shared memory.
       
           For the `gpu` part, `num` represents the number of GPUs used by MegaWise. `physical_memory` and `partition_memory` respectively represents the available video memory size for MegaWise and the video memory size for the data cache partition. It is recommended that you reserve 2 GB of video memory to store the intermediate results during computation by setting `partition_memory` and `physical_memory` to a value that equals the video memory of a single GPU minus 2.
 
 
-7. Run MegaWise.
+6. Run MegaWise.
 
     ```bash
-    $ docker run --gpus all --shm-size 17179869184 \
-                        -e USER=`id -u` -e GROUP=`id -g` \
-                        -v $WORK_DIR/conf:/megawise/conf \
-                        -v $WORK_DIR/data:/megawise/data \
-                        -v $WORK_DIR/logs:/megawise/logs \
-                        -v $WORK_DIR/server_data:/megawise/server_data \
-                        -v /home/$USER/.nv:/home/megawise/.nv \
-                        -v /tmp:/tmp \
-                        -p 5433:5432 \
-                        $IMAGE_ID
+    $ docker run --gpus all --shm-size $SHM_SIZE \
+                            -e USER=`id -u` -e GROUP=`id -g` \
+                            -v $WORK_DIR/conf:/megawise/conf \
+                            -v $WORK_DIR/data:/megawise/data \
+                            -v $WORK_DIR/logs:/megawise/logs \
+                            -v $WORK_DIR/server_data:/megawise/server_data \
+                            -v /home/$USER/.nv:/home/megawise/.nv \
+                            -v /tmp:/tmp \
+                            -p 5433:5432 \
+                            $IMAGE_ID
     ```
 
-    > Note: `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
-
-    ```bash
-    $ docker image ls
-    ```
-    
-    > Note: `-v /tmp:/tmp` specifies mapping to the `tmp` folder. In this guide, it is used to store example data. You can also customize the mapping folder.
-
-
-    Parameter description
+   **Parameter description**
 
     - `--shm-size`
 
-      The allocated memory size for a running Docker image in bytes. Use the value in the `physical_memory` parameter under `cpu`->`cache` in `user_config.yaml`.
+      The allocated memory size for a running Docker image in bytes. It is recommended that you use a value that is 70% of the available storage of the `/dev/shm` folder. You can use `df -h` to check the available storage of the `/dev/shm` folder. Make sure you convert the available storage to bytes before calculating the value of `--shm-size`.
 
     - `-v`
 
       Directory mapping between the host and the Docker image. Separated by `:`, the former part is the directory of the host and the latter part is the directory of the Docker image.
 
       When launching the container, you can use `-v` to map local data files to the container to import local files to the MegaWise database.
+      
+      > Note: `-v /tmp:/tmp` specifies mapping to the `tmp` folder. In this guide, it is used to store example data. You can also customize the mapping folder.
 
     - `-p`
 
-      Port mapping between the host and the Docker image. Separated by `:`, the former part is the port of the host and the latter part is the port of the Docker image. You can set the host to use any unoccupied port. In this tutorial, we use 5433.
+      Port mapping between the host and the Docker image. Separated by `:`, the former part is the port of the host and the latter part is the port of the Docker image. You can set the host to use any unoccupied port. In this guide, we use 5433.
+      
+    > Note: `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
 
-    Logging starts when the container starts running. If you can find the following content in the log, you can assume the MegaWise server is successfully running.
+    ```bash
+    $ docker image ls
+    ```
+
+    Logging starts when the container starts running. Use the following command to check the logs:
+    
+    ```bash
+    $ docker logs $CONTAINER_ID
+    ```
+    
+    If you can find the following content in the log, you can assume the MegaWise server is successfully running.
 
     ```bash
     MegaWise server is running...
@@ -366,7 +371,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
 1. Enter the bash command of MegaWise docker and connect to MegaWise:
 
    ```bash
-   $ docker exec -u `id -u` -it <$MegaWise_Container_ID> bash
+   $ docker exec -u `id -u` -it $CONTAINER_ID bash
    $ cd script && ./connect.sh
    ```
     
@@ -384,7 +389,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
 1. Stop MegaWise.
 
    ```bash
-   $ docker stop <$MegaWise_Container_ID>
+   $ docker stop $CONTAINER_ID
    ```
 
 2. Navigate to the working directory of MegaWise and make the following changes:
@@ -396,46 +401,52 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
    ```
 3. Restart MegaWise.
 
-   > Note: Do not use `docker start <$MegaWise_Container_ID>` to restart MegaWise.
+   > Note: Do not use `docker start $CONTAINER_ID` to restart MegaWise.
 
    ```bash
-    $ docker run --gpus all --shm-size 17179869184 \
-                        -e USER=`id -u` -e GROUP=`id -g` \
-                        -v $WORK_DIR/conf:/megawise/conf \
-                        -v $WORK_DIR/data:/megawise/data \
-                        -v $WORK_DIR/logs:/megawise/logs \
-                        -v $WORK_DIR/server_data:/megawise/server_data \
-                        -v /home/$USER/.nv:/home/megawise/.nv \
-                        -v /tmp:/tmp \
-                        -p 5433:5432 \
-                        $IMAGE_ID
+    $ docker run --gpus all --shm-size $SHM_SIZE \
+                            -e USER=`id -u` -e GROUP=`id -g` \
+                            -v $WORK_DIR/conf:/megawise/conf \
+                            -v $WORK_DIR/data:/megawise/data \
+                            -v $WORK_DIR/logs:/megawise/logs \
+                            -v $WORK_DIR/server_data:/megawise/server_data \
+                            -v /home/$USER/.nv:/home/megawise/.nv \
+                            -v /tmp:/tmp \
+                            -p 5433:5432 \
+                            $IMAGE_ID
     ```
 
-    > Note: `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
-
-    ```bash
-    $ docker image ls
-    ```
-    
-    > Note: `-v /tmp:/tmp` specifies mapping to the `tmp` folder. In this guide, it is used to store example data. You can also customize the mapping folder.
-
-    Parameter description
+   **Parameter description**
 
     - `--shm-size`
 
-      The allocated memory size for a running Docker image in bytes. Use the value in the `physical_memory` parameter under `cpu`->`cache` in `user_config.yaml`.
+      The allocated memory size for a running Docker image in bytes. It is recommended that you use a value that is 70% of the available storage of the `/dev/shm` folder. You can use `df -h` to check the available storage of the `/dev/shm` folder. Make sure you convert the available storage to bytes before calculating the value of `--shm-size`.
 
     - `-v`
 
       Directory mapping between the host and the Docker image. Separated by `:`, the former part is the directory of the host and the latter part is the directory of the Docker image.
 
       When launching the container, you can use `-v` to map local data files to the container to import local files to the MegaWise database.
+      
+      > Note: `-v /tmp:/tmp` specifies mapping to the `tmp` folder. In this guide, it is used to store example data. You can also customize the mapping folder.
 
-   - `-p`
+    - `-p`
 
-      Port mapping between the host and the Docker image. Separated by `:`, the former part is the port of the host and the latter part is the port of the Docker image. You can set the host to use any unoccupied port. In this tutorial, we use 5433.
+      Port mapping between the host and the Docker image. Separated by `:`, the former part is the port of the host and the latter part is the port of the Docker image. You can set the host to use any unoccupied port. In this guide, we use 5433.
+      
+    > Note: `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
 
-    Logging starts when the container starts running. If you can find the following content in the log, you can assume the MegaWise server is successfully running.
+    ```bash
+    $ docker image ls
+    ```
+
+    Logging starts when the container starts running. Use the following command to check the logs:
+    
+    ```bash
+    $ docker logs $CONTAINER_ID
+    ```
+    
+    If you can find the following content in the log, you can assume the MegaWise server is successfully running.
 
     ```bash
     MegaWise server is running...
@@ -468,7 +479,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
     postgres=#
     ```
 
-    > Note：If the connection timeouts, check whether the firewall settings are correct. In the current version, you must import data every time MegaWise is restarted.
+    > Note：If the connection timeouts, check whether the firewall settings are correct. 
     
 ## Create a MegaWise user and import data
 
