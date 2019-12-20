@@ -66,7 +66,7 @@ You need to install PostgreSQL 11 client to check whether MegaWise is successful
 
 > Note: Do not use a root user to install or run MegaWise Docker.
 
-> Note: In the current version, you must import data every time MegaWise is restarted.
+> Note: In the current version, you must import data again every time MegaWise is restarted.
 
 1. Get the 0.5.0-ppc64le docker image of MegaWise.
 
