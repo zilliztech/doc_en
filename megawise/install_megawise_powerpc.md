@@ -56,9 +56,17 @@ $ docker run --runtime=nvidia --rm nvidia/cuda-ppc64le nvidia-smi
 > Note: If you are a non-root user, you are recommended to add the user to the `docker` user group. Otherwise, you need to add `sudo` before `docker`
 . Refer to [https://docs.docker.com/install/linux/linux-postinstall/](https://docs.docker.com/install/linux/linux-postinstall/) for more information.
 
-### Install and run MegaWise
+### Install PostgreSQL client
+
+You need to install PostgreSQL 11 client to check whether MegaWise is successfully installed. Refer to [https://www.postgresql.org/download/](https://www.postgresql.org/download/) for more information.
+
+
+## Install and run MegaWise
+
 
 > Note: Do not use a root user to install or run MegaWise Docker.
+
+> Note: In the current version, you must import data every time MegaWise is restarted.
 
 1. Get the 0.5.0-ppc64le docker image of MegaWise.
 
@@ -66,30 +74,14 @@ $ docker run --runtime=nvidia --rm nvidia/cuda-ppc64le nvidia-smi
     $ docker pull zilliz/megawise:0.5.0-ppc64le
     ```
 
-2. Install PostgreSQL client.
-
-    ```bash
-    $ sudo apt-get install curl ca-certificates
-    $ curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-    $ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-    $ sudo apt-get update
-    $ sudo apt-get install postgresql-client-11
-    ```
-
-    PostgreSQL client is installed to `/usr/lib/postgresql/11/bin/` by default. After installation, run `which psql`. If the terminal does not return the correct location of the PostgreSQL client, please add the installation path to the environment variable.
-
-    ```bash
-    $ export PATH=/usr/lib/postgresql/11/bin:$PATH
-    ```
-
-3. Create a new folder as the working folder.
+2. Create a new folder as the working folder.
 
     ```bash
     $ cd $WORK_DIR
     $ mkdir conf
     ```
 
-4. Get MegaWise config files.
+3. Get MegaWise config files.
 
     ```bash
     $ cd $WORK_DIR/conf
@@ -101,7 +93,7 @@ $ docker run --runtime=nvidia --rm nvidia/cuda-ppc64le nvidia-smi
 
     ```
 
-5. Modify config files based on the hardware environment of MegaWise. Open `user_config.yaml` in the `conf` directory.
+4. Modify config files based on the hardware environment of MegaWise. Open `user_config.yaml` in the `conf` directory.
    
       1. Navigate to the following code:
 
@@ -118,16 +110,16 @@ $ docker run --runtime=nvidia --rm nvidia/cuda-ppc64le nvidia-smi
 
           Configure the parameters based on the hardware environment of the server (The numbers are in GBs).
 
-          For the `cpu` part, `physical_memory` and `partition_memory` respectively represents the available memory size for MegaWise and the memory size for the data cache partition. It is recommended that you set both `partition_memory` and `physical_memory` to more than 70 percent of the server memory.
+          For the `cpu` part, `physical_memory` and `partition_memory` respectively represents the available memory size for MegaWise and the memory size for the data cache partition. It is recommended that you set both `partition_memory` and `physical_memory` to more than 70 percent of the available server memory.
       
           For the `gpu` part, `num` represents the number of GPUs used by MegaWise. `physical_memory` and `partition_memory` respectively represents the available video memory size for MegaWise and the video memory size for the data cache partition. It is recommended that you reserve 2 GB of video memory to store the intermediate results during computation by setting `partition_memory` and `physical_memory` to a value that equals the video memory of a single GPU minus 2.
 
 
-6. Run MegaWise.
+5. Run MegaWise.
 
     ```bash
-    $ docker run -d --runtime=nvidia --shm-size 17179869184 \
-                        -e USER=`id -u` -e GROUP=`id -g` \
+    $ docker run -d --runtime=nvidia --shm-size $SHM_SIZE \
+                        -e USER=megawise -e GROUP=`id -g` \
                         -v $WORK_DIR/conf:/megawise/conf \
                         -v $WORK_DIR/data:/megawise/data \
                         -v $WORK_DIR/logs:/megawise/logs \
@@ -138,32 +130,38 @@ $ docker run --runtime=nvidia --rm nvidia/cuda-ppc64le nvidia-smi
                         $IMAGE_ID
     ```
 
-    > Note: `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
-
-    ```bash
-    $ docker image ls
-    ```
     
-    > Note: `-v /tmp:/tmp` specifies mapping to the `tmp` folder. In this guide, it is used to store example data. You can also customize the mapping folder.
-
-
-    Parameter description
+    **Parameter description**
 
     - `--shm-size`
 
-      The allocated memory size for a running Docker image in bytes. Use the value in the `physical_memory` parameter under `cpu`->`cache` in `user_config.yaml`.
+      The allocated memory size for a running Docker image in bytes. It is recommended that you use a value that is 70% of the available storage of the `/dev/shm` folder. You can use `df -h` to check the available storage of the `/dev/shm` folder. Make sure you convert the available storage to bytes before calculating the value of `--shm-size`.
 
     - `-v`
 
       Directory mapping between the host and the Docker image. Separated by `:`, the former part is the directory of the host and the latter part is the directory of the Docker image.
 
       When launching the container, you can use `-v` to map local data files to the container to import local files to the MegaWise database.
+      
+      > Note: `-v /tmp:/tmp` specifies mapping to the `tmp` folder. In this guide, it is used to store example data. You can also customize the mapping folder.
 
     - `-p`
 
-      Port mapping between the host and the Docker image. Separated by `:`, the former part is the port of the host and the latter part is the port of the Docker image. You can set the host to use any unoccupied port. In this tutorial, we use 5433.
+      Port mapping between the host and the Docker image. Separated by `:`, the former part is the port of the host and the latter part is the port of the Docker image. You can set the host to use any unoccupied port. In this guide, we use 5433.
+      
+    > Note: `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
 
-    Logging starts when the container starts running. If you can find the following content in the log, you can assume the MegaWise server is successfully running.
+    ```bash
+    $ docker image ls
+    ```
+
+    Logging starts when the container starts running. Use the following command to check the logs:
+    
+    ```bash
+    $ docker logs $CONTAINER_ID
+    ```
+    
+    If you can find the following content in the log, you can assume the MegaWise server is successfully running.
 
     ```bash
     MegaWise server is running...
@@ -180,7 +178,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
 1. Enter the bash command of MegaWise docker and connect to MegaWise:
 
    ```bash
-   $ docker exec -u megawise -it <$MegaWise_Container_ID> bash
+   $ docker exec -u megawise -it $CONTAINER_ID bash
    $ cd script && ./connect.sh
    ```
     
@@ -198,7 +196,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
 1. Stop MegaWise.
 
    ```bash
-   $ docker stop <$MegaWise_Container_ID>
+   $ docker stop $CONTAINER_ID
    ```
 
 2. Navigate to the working directory of MegaWise and make the following changes:
@@ -210,11 +208,11 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
    ```
 3. Restart MegaWise.
 
-   > Note: Do not use `docker start <$MegaWise_Container_ID>` to restart MegaWise.
+   > Note: Do not use `docker start $CONTAINER_ID` to restart MegaWise.
 
    ```bash
-    $ docker run -d --runtime=nvidia --shm-size 17179869184 \
-                        -e USER=`id -u` -e GROUP=`id -g` \
+    $ docker run -d --runtime=nvidia --shm-size $SHM_SIZE \
+                        -e USER=megawise -e GROUP=`id -g` \
                         -v $WORK_DIR/conf:/megawise/conf \
                         -v $WORK_DIR/data:/megawise/data \
                         -v $WORK_DIR/logs:/megawise/logs \
@@ -225,35 +223,43 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
                         $IMAGE_ID
     ```
 
-    > Note: `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
-
-    ```bash
-    $ docker image ls
-    ```
     
-    > Note: `-v /tmp:/tmp` specifies mapping to the `tmp` folder. In this guide, it is used to store example data. You can also customize the mapping folder.
-
-    Parameter description
+    **Parameter description**
 
     - `--shm-size`
 
-      The allocated memory size for a running Docker image in bytes. Use the value in the `physical_memory` parameter under `cpu`->`cache` in `user_config.yaml`.
+      The allocated memory size for a running Docker image in bytes. It is recommended that you use a value that is 70% of the available storage of the `/dev/shm` folder. You can use `df -h` to check the available storage of the `/dev/shm` folder. Make sure you convert the available storage to bytes before calculating the value of `--shm-size`.
 
     - `-v`
 
       Directory mapping between the host and the Docker image. Separated by `:`, the former part is the directory of the host and the latter part is the directory of the Docker image.
 
       When launching the container, you can use `-v` to map local data files to the container to import local files to the MegaWise database.
+      
+      > Note: `-v /tmp:/tmp` specifies mapping to the `tmp` folder. In this guide, it is used to store example data. You can also customize the mapping folder.
 
-   - `-p`
+    - `-p`
 
-      Port mapping between the host and the Docker image. Separated by `:`, the former part is the port of the host and the latter part is the port of the Docker image. You can set the host to use any unoccupied port. In this tutorial, we use 5433.
+      Port mapping between the host and the Docker image. Separated by `:`, the former part is the port of the host and the latter part is the port of the Docker image. You can set the host to use any unoccupied port. In this guide, we use 5433.
+      
+    > Note: `$IMAGE_ID` is the image ID of the MegaWise Docker and can be acquired by the following command:
 
-    Logging starts when the container starts running. If you can find the following content in the log, you can assume the MegaWise server is successfully running.
+    ```bash
+    $ docker image ls
+    ```
+
+    Logging starts when the container starts running. Use the following command to check the logs:
+    
+    ```bash
+    $ docker logs $CONTAINER_ID
+    ```
+    
+    If you can find the following content in the log, you can assume the MegaWise server is successfully running.
 
     ```bash
     MegaWise server is running...
     ```
+    
 4. Use MegaWise.
   
     ```bash
@@ -282,7 +288,7 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
     postgres=#
     ```
 
-    > Note：If the connection timeouts, check whether the firewall settings are correct. In the current version, you must import data every time MegaWise is restarted.
+    > Note：If the connection timeouts, check whether the firewall settings are correct. 
     
 ## Create a MegaWise user and import data
 
