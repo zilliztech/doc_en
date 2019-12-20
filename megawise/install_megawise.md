@@ -8,7 +8,7 @@ title: "Install MegaWise (x86 Platform)"
 
 This document introduces how to install and configure MegaWise Docker in the x86 platform.
 
-> Note: In the current version, you must import data every time MegaWise is restarted.
+> Note: In the current version, you must import data again every time MegaWise is restarted.
 
 ## Prerequisites
 
