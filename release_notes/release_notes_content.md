@@ -63,7 +63,7 @@ ZILLIZ Analysis 0.4.0, released on October 15, 2019, has the following improveme
 - Added date_trunc support at the quarter level.
 - Optimized task scheduling for multiple GPUs and improved the sensibility of the scheduler for data locality.
 - Optimized the efficiency of accessing metadata.
-- Optimized the performance of AGG operands.
+- Optimized the performance of AGG operators.
 - SQL optimizer:
     - Optimized the algorithms for AGG.
     - Optimized the physical implementation of AGG.
