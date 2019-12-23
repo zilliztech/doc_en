@@ -16,7 +16,7 @@ ZILLIZ Analysis 0.5.0, released on November 30, 2019, has the following improvem
 - Added GPU-accelerated mechanism to import CSV files.
 - Added new chart types.
 - Improved the exception handling mechanism and system stability.
-- Improved the performance of computation and rendering operands.
+- Improved the performance of computation and rendering operators.
 
 ## Infini visualized analytics interface
 
