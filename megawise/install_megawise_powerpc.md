@@ -310,26 +310,27 @@ You can either connect to MegaWise inside the Docker or outside the Docker.
    Create an extension, create a table, and import example data.
 
    ```bash
-   postgres=# create extension zdb_fdw;
-   postgres=# create table nyc_taxi(
-    vendor_id text,
-    tpep_pickup_datetime timestamp,
-    tpep_dropoff_datetime timestamp,
-    passenger_count int,
-    trip_distance float,
-    pickup_longitute float,
-    pickup_latitute float,
-    dropoff_longitute float,
-    dropoff_latitute float,
-    fare_amount float,
-    tip_amount float,
-    total_amount float
-    );
-   postgres=# copy nyc_taxi from '/tmp/nyc_taxi_data.csv'
-    WITH DELIMITER ',' csv header;
-   ```
+      postgres=# create extension zdb_fdw;
+      postgres=# \c zilliz;
+      postgres=> create table nyc_taxi(
+       vendor_id text,
+       tpep_pickup_datetime timestamp,
+       tpep_dropoff_datetime timestamp,
+       passenger_count int,
+       trip_distance float,
+       pickup_longitute float,
+       pickup_latitute float,
+       dropoff_longitute float,
+       dropoff_latitute float,
+       fare_amount float,
+       tip_amount float,
+       total_amount float
+       );
+      postgres=> copy nyc_taxi from '/tmp/nyc_taxi_data.csv'
+       WITH DELIMITER ',' csv header;
+    ```
 
-> Note: If you need to create charts in the Infini interface, you must create the `zdb_fdw` extension. When you use `copy` to import data, ensure that the folder that the data resides is already mapped to MegaWise docker. This install guide has mapped the `tmp` folder to MegaWise Docker. So, you can use the `tmp` folder to store and import data.
+> Note: If you need to create charts in the Infini interface, you must create the `zdb_fdw` extension. After creating the extension, switch to user `zilliz` to create tables and import data. When you use `copy` to import data, ensure that the folder that the data resides is already mapped to MegaWise docker. This install guide has mapped the `tmp` folder to MegaWise Docker. So, you can use the `tmp` folder to store and import data.
 
 ## What's next
 
