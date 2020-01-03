@@ -23,7 +23,7 @@ To create a new database, in this example named mydb, you use the following comm
 $ create database mydb
 ```
 
-If this produces no response then this step was successful and you can skip over the remainder of this section.
+If this produces no response then this step was successful.
 
 If you got the following information when creating a database, please log in as an administrator and grant the current user permission to create databases.
 
@@ -37,7 +37,7 @@ ERROR:  permission denied to create database
 To switch to another created database, in this example named mydb, you use the following command:
 
 ```bash
-\c mydb
+$ \c mydb
 ```
 
 
@@ -46,7 +46,7 @@ To switch to another created database, in this example named mydb, you use the f
 To remove a database, in this example named mydb, you use the following command:
 
 ```bash
-drop database mydb
+$ drop database mydb
 ```
 
 You must declare the database name if it is not a default name. This command physically removes all files related to the database and cannot be undone. Think twice before running this command.
