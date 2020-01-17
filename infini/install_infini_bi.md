@@ -37,7 +37,7 @@ lang: "en"
 
 3. Modify the `.env` file.
 
-   > Note：Update `192.168.1.60` to the IP address of the running Infini docker server. Update `192.168.1.106` to the IP address of the running MegaWise docker server.
+   > Note：Update `192.168.1.60` to the IP address of the Infini docker server. Update `192.168.1.106` to the IP address of the MegaWise docker server.
 
    ```yml
    # default API server address
@@ -70,7 +70,7 @@ lang: "en"
    # Please add the port number if you modified the 80 port
    http://192.168.1.60
    ```
-   > Note：Update `192.168.1.60` to the IP address of the running Infini docker server.
+   > Note：Update `192.168.1.60` to the IP address of the Infini docker server.
 
 
 ## Configure the visualized interface
