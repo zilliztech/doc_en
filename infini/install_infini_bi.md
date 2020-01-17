@@ -70,6 +70,7 @@ lang: "en"
    # Please add the port number if you modified the 80 port
    http://192.168.1.60
    ```
+   > Note：Update `192.168.1.60` to the IP address of the running Infini docker server.
 
 
 ## Configure the visualized interface
