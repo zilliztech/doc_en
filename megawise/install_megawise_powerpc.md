@@ -90,8 +90,10 @@ You need to install PostgreSQL 11 client to check whether MegaWise is successful
     https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/megawise_config_template.yaml \
     https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/etcd_config_template.yaml \
     https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/megawise_config.yaml
-
     ```
+    
+    > Note: If you cannot use `wget` to download configuration files, please create the files above and copy the content from [https://github.com/zilliztech/infini/tree/v0.5.0/config/db](https://github.com/zilliztech/infini/tree/v0.5.0/config/db).
+
 
 4. Modify config files based on the hardware environment of MegaWise. Open `user_config.yaml` in the `conf` directory.
    
